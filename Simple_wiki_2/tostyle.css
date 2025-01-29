@@ -3,7 +3,7 @@ body{
 }
 
 nav {
-    margin-top:0px;
+    margin-top: 0px;
     margin-bottom: 50px;
     background-color: rgb(255, 255, 255);
     padding: 5px;
@@ -11,7 +11,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid rgb(122, 122, 122);
 }
 
 nav ul {
@@ -20,6 +20,9 @@ nav ul {
     padding: 0;
     text-align: center;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -36,23 +39,36 @@ nav a {
 
 nav a:hover {
     color: #3e505e;
-    text-decoration:overline;
+    text-decoration: overline;
     padding: 10px 21px;
-   
 }
 
-header{
+header {
     font-size: 50px;
     font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     padding: 10px;
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     border-color: rgba(0, 0, 0, 0.337);
     border-radius: 5px;
     border-style: ridge;
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 50px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 50px;
+        padding: 10px;
+    }
 }
 section{
     margin-top: 20px;
@@ -86,7 +102,7 @@ hr{width: 50%;}
 footer {
     background: #ffffff;
     border-radius: 10px;
-    border-top: 3px solid white;
+    border-top: 3px solid rgb(164, 164, 164);
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 5px;
