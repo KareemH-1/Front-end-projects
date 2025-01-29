@@ -115,7 +115,7 @@ footer {
     background-color: rgb(30, 30, 30); 
     border: 2px solid rgb(255, 255, 255); 
     border-radius: 22px; 
-    font-size: 15px; 
+    font-size: 20px; 
     cursor: pointer;
     padding: 5px 8px; 
     transition: background-color 0.3s, color 0.3s; 
