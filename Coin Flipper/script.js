@@ -3,6 +3,9 @@ const body = document.getElementsByTagName("body")[0]; //[0] to call the first e
 function setColor(color){
     body.style.backgroundColor = color; //set the background color to the parameter color sent from the html file
 }
+function removeColor(){
+    body.style.backgroundColor = "rgb(44, 44, 44)"; 
+}
 
 function randomColor(){
     //let the RGB get random numbers each (0-255 , 0-255 , 0-255) and round them to prevent getting floats;

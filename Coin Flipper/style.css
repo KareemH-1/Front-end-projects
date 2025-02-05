@@ -46,3 +46,11 @@ button:hover {
     background: url('images/images.jpg');
     background-size: cover;
 }
+#Remove{
+    background:rgb(63, 63, 63); 
+    border-color: white;
+    border: 2px solid white;
+    width : 100px;
+    height:50px;
+    font-size: 10px;
+}
