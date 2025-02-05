@@ -52,6 +52,12 @@ li span {
     width: 30px;
     text-align: left; 
 }
+#note {
+    font-size: 10px;
+    margin-left: 10px;
+    color: #ffffff83;
+    width: auto;
+}
 
 a {
     text-decoration: none;
