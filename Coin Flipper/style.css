@@ -1,0 +1,48 @@
+body {
+    background: rgb(44, 44, 44); 
+    color: rgb(230, 230, 230);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+p {
+    font-size: 35px;
+    text-align: center;
+}
+
+hr {
+    margin: 30px;
+    border: none;
+    height: 1px;
+    background: #e6e6e6; 
+}
+
+button {
+    padding: 8px 15px;
+    margin: 10px;
+    width : 200px;
+    height:100px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 20px;
+    border-radius: 17px;
+    transition: background 0.3s ease;
+}
+button:hover {
+    transform: scale(1.1);
+}
+#Green {
+    background: #2ecc71; 
+}
+#Red {
+    background: #e74c3c; 
+}
+#Blue {
+    background: #3498db; 
+}
+#Random {
+    background: url('images/images.jpg');
+    background-size: cover;
+}
