@@ -3,8 +3,9 @@ const body = document.getElementsByTagName("body")[0]; //[0] to call the first e
 function setColor(color){
     body.style.backgroundColor = color; //set the background color to the parameter color sent from the html file
 }
+
 function removeColor(){
-    body.style.backgroundColor = "rgb(44, 44, 44)"; 
+    body.style.backgroundColor = "rgb(44, 44, 44)"; //let the body color be equal to the default rgb of the body background 
 }
 
 function randomColor(){
