@@ -20,6 +20,7 @@ p{
 h1 {
     margin-bottom: 20px;
 }
+
 ul {
     list-style: none;
     padding: 20px;
@@ -34,6 +35,8 @@ ul {
 }
 
 li {
+    display: flex;
+    align-items: center;  
     margin: 10px 0;
     padding: 10px;
     background-color: #bababa;
@@ -41,16 +44,27 @@ li {
     border: 1px solid #ff151517;
     box-shadow: 2px 8px 4px rgba(0, 0, 0, 0.279);
 }
-li:hover{
-    transform: scale(1.05);
+
+li span {
+    font-size: 25px;
+    font-weight: bold;
+    color: #2c2c2c;
+    width: 30px;
+    text-align: left; 
 }
+
 a {
     text-decoration: none;
     color: #ffffff;
     font-size: 25px;
-
+    text-align: left; 
+    padding-left: 10px; 
 }
+
+li:hover {
+    transform: scale(1.05);
+}
+
 a:hover {
     color: #808080;
-   
 }
