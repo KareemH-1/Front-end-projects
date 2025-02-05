@@ -16,4 +16,12 @@ toggleButton.addEventListener('click', () => {
             element.classList.toggle('dark-mode');
         }
     });
+
+    if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = '🌙';  // Change to moon emoji in light mode
+    } else {
+        toggleButton.textContent = '🌞';  // Change to sun emoji in dark mode
+    }
+
+
 });
