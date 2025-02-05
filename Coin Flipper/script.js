@@ -4,8 +4,9 @@ function setColor(color){
     body.style.backgroundColor = color; //set the background color to the parameter color sent from the html file
 }
 
+const bodycolor = getComputedStyle(body).backgroundColor; // a constant variable that gets the background color of the body and stores it
 function removeColor(){
-    body.style.backgroundColor = "rgb(44, 44, 44)"; //let the body color be equal to the default rgb of the body background 
+    body.style.backgroundColor = bodycolor; //convert the body background back to original when remove color button is clicked
 }
 
 function randomColor(){
