@@ -43,6 +43,7 @@ li {
     border-radius: 5px;
     border: 1px solid #ff151517;
     box-shadow: 2px 8px 4px rgba(0, 0, 0, 0.279);
+    transition: transform 0.25s ease-in-out;
 }
 
 li span {
