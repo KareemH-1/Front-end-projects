@@ -28,10 +28,12 @@ function startClock(){
 
 function stopClock(){
     clearInterval(interval);
+    document.getElementById("start").textContent = "Continue";
 }
 
 function resetClock(){
     stopClock();
     seconds = 0;
     setTime();
+    document.getElementById("start").textContent = "Start";
 }
