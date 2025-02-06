@@ -1,23 +1,93 @@
 body {
     background-image: url('images/Background1.jpg');
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
 }
 
+/* Custom Font */
 @font-face { 
     font-family: 'Azontix';
     src: url('Fonts/Azonix.otf');
     font-weight: normal;
     font-style: normal;
-    }
+}
 
-header{
+
+header {
     font-family: 'Azontix', Arial, sans-serif;
     font-size: 75px;
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
     background: linear-gradient(90deg, #00FFFF, #FF00FF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color:transparent;
-    text-shadow: 12px 1px 1px #ff00ff48;
-    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.555);
+    -webkit-text-fill-color: transparent;
+    text-shadow: 5px 5px 15px rgba(0, 255, 255, 0.8), 5px 5px 20px rgba(255, 0, 255, 0.8);
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
+}
+
+#time {
+    font-size: 70px;
+    font-weight: bold;
+    background-color:#00ffff1c;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8), 0px 0px 20px rgba(255, 0, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    width: 150px;
+    height: 50px;
+}
+
+#start {
+    background-color: #00ff80;
+    color: #000;
+    box-shadow: 0px 0px 10px rgba(0, 255, 128, 0.8);
+}
+
+#start:hover {
+    transform:scale(1.05);
+    background-color: #00cc66;
+    box-shadow: 0px 0px 20px rgba(0, 255, 128, 1);
+}
+
+
+#Reset {
+    background-color: #ff4d4d;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(255, 77, 77, 0.8);
+}
+
+#Reset:hover {
+    transform:scale(1.05);
+    background-color: #cc0000;
+    box-shadow: 0px 0px 20px rgba(255, 77, 77, 1);
+}
+
+
+#Stop {
+    background-color: #0099ff;
+    color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 153, 255, 0.8);
+}
+
+#Stop:hover {
+    transform:scale(1.05);
+    background-color: #007acc;
+    box-shadow: 0px 0px 20px rgba(0, 153, 255, 1);
 }
