@@ -1,9 +1,15 @@
 body {
     background-image: url('images/Background1.jpg');
     background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;  
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     justify-content: center;
     font-family: Arial, sans-serif;
 }
@@ -19,7 +25,7 @@ body {
 
 header {
     font-family: 'Azontix', Arial, sans-serif;
-    font-size: 100Px; 
+    font-size: 10vw;
     text-align: center;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #00FFFF, #FF00FF);
@@ -30,7 +36,7 @@ header {
 }
 
 #time {
-    font-size: 75px; 
+    font-size: 8vw;
     font-weight: bold;
     background-color: #00ffff1c;
     color: #FFFFFF;
@@ -41,18 +47,18 @@ header {
 }
 
 button {
-    font-size: 20px;
+    font-size: 4vw;
     font-family: 'Azontix', Arial, sans-serif;
     font-weight: bold;
-    padding: 12px 20px;
+    padding: 2vh 4vw;
     margin: 10px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     text-transform: uppercase;
-    width: 175px;
-    height: 50px;
+    width: 25vw;
+    height: 10vh;
 }
 
 @media (max-width: 768px) {
