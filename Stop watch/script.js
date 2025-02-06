@@ -1,4 +1,5 @@
 let seconds =0;
+let centiseconds =0;
 let interval = null;
 const time = document.getElementById("time");
 
@@ -13,10 +14,14 @@ function setTime(){
     const hours = Math.floor(seconds/3600);
     const secondsCounted = seconds%60;
     const minutesCounted = minutes%60;
-    time.innerHTML = `${zerostart(hours)} :${zerostart(minutesCounted)} : ${zerostart(secondsCounted)}`; 
+    time.innerHTML = `${zerostart(hours)} :${zerostart(minutesCounted)} : ${zerostart(secondsCounted)} : ${zerostart(centiseconds)}`; 
 }
 function timer(){
-    seconds++;
+    centiseconds++; 
+    if (centiseconds >= 100) {  
+        centiseconds = 0;
+        seconds++;
+    }
     setTime();
 }
 
@@ -25,7 +30,7 @@ function startClock(){
         stopClock();
     }
 
-    interval = setInterval(timer,1000)
+    interval = setInterval(timer, 10);
 }
 
 function stopClock(){

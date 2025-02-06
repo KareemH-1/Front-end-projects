@@ -19,7 +19,7 @@ body {
 
 header {
     font-family: 'Azontix', Arial, sans-serif;
-    font-size: 75px;
+    font-size: 100Px; 
     text-align: center;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #00FFFF, #FF00FF);
@@ -30,16 +30,15 @@ header {
 }
 
 #time {
-    font-size: 70px;
+    font-size: 75px; 
     font-weight: bold;
-    background-color:#00ffff1c;
+    background-color: #00ffff1c;
     color: #FFFFFF;
     text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8), 0px 0px 20px rgba(255, 0, 255, 0.8);
     padding: 10px;
     border-radius: 10px;
     border: 1px inset #FF00FF;
 }
-
 
 button {
     font-size: 20px;
@@ -51,8 +50,42 @@ button {
     cursor: pointer;
     transition: 0.3s ease-in-out;
     text-transform: uppercase;
-    width: 150px;
+    width: 175px;
     height: 50px;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        font-size: 70px; 
+    }
+
+    #time {
+        font-size: 70px; 
+    }
+
+    button {
+        font-size: 6vw;
+        width: 50Vw;
+        height: 10vh;
+    }
+}
+
+@media (max-width: 480px) {
+   
+    header {
+        font-size: 55px; 
+    }
+
+    #time {
+        font-size: 60px;
+    }
+
+    button {
+        font-size: 5vw;
+        width: 25vw;
+        height: 10vh;
+    }
 }
 
 #start {
@@ -62,7 +95,7 @@ button {
 }
 
 #start:hover {
-    transform:scale(1.05);
+    transform: scale(1.05);
     background-color: #00cc66;
     box-shadow: 0px 0px 20px rgba(0, 255, 128, 1);
 }
@@ -75,7 +108,7 @@ button {
 }
 
 #Reset:hover {
-    transform:scale(1.05);
+    transform: scale(1.05);
     background-color: #cc0000;
     box-shadow: 0px 0px 20px rgba(255, 77, 77, 1);
 }
@@ -88,7 +121,7 @@ button {
 }
 
 #Stop:hover {
-    transform:scale(1.05);
+    transform: scale(1.05);
     background-color: #007acc;
     box-shadow: 0px 0px 20px rgba(0, 153, 255, 1);
 }
