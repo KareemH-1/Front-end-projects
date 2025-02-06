@@ -1,4 +1,4 @@
-let seconds =3596;
+let seconds =0;
 let interval = null;
 const time = document.getElementById("time");
 
