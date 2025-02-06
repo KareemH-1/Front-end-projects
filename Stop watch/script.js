@@ -1,4 +1,4 @@
-let seconds =0;
+let seconds =3596;
 let interval = null;
 const time = document.getElementById("time");
 
@@ -10,8 +10,10 @@ function zerostart(val){
 
 function setTime(){
     const minutes = Math.floor(seconds/60);
-    const secondsCounted = seconds%60; 
-    time.innerHTML = `${zerostart(minutes)} : ${zerostart(secondsCounted)}`; 
+    const hours = Math.floor(seconds/3600);
+    const secondsCounted = seconds%60;
+    const minutesCounted = minutes%60;
+    time.innerHTML = `${zerostart(hours)} :${zerostart(minutesCounted)} : ${zerostart(secondsCounted)}`; 
 }
 function timer(){
     seconds++;
