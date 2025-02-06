@@ -8,7 +8,7 @@ function check(){
     }
     //if its false
     else{
-        alert("The word you entered isn't a palindrome");
+        alert("Palindrome!");
     }
 }
 
