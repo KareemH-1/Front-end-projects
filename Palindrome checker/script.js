@@ -10,6 +10,7 @@ function check(){
     else{
         alert("Palindrome!");
     }
+    input.value=""; //remove the input text once it has been checked
 }
 
 function reverse(value){
