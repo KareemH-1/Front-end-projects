@@ -49,3 +49,20 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+#palindrome { 
+    position: absolute;
+    width: 80%; 
+    bottom: 20px;
+    justify-content: left;
+    background-color: #dcdcdc; 
+    border-radius:16px;
+    color:gray;
+    padding: 0 20px;
+    font-size: small;
+}
+p{
+    border-left: 2px solid white;
+    border-radius:3px;
+    padding-left: 10px;
+}
