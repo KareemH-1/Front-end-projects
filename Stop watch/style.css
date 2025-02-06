@@ -47,7 +47,7 @@ header {
 }
 
 button {
-    font-size: 4vw;
+    font-size: 3vw;
     font-family: 'Azontix', Arial, sans-serif;
     font-weight: bold;
     padding: 2vh 4vw;
@@ -64,16 +64,16 @@ button {
 @media (max-width: 768px) {
 
     header {
-        font-size: 70px; 
+        font-size: 60px; 
     }
 
     #time {
-        font-size: 70px; 
+        font-size: 50px; 
     }
 
     button {
-        font-size: 6vw;
-        width: 50Vw;
+        font-size: 3vw;
+        width: 30Vw;
         height: 10vh;
     }
 }
@@ -81,17 +81,17 @@ button {
 @media (max-width: 480px) {
    
     header {
-        font-size: 13vw; 
+        font-size: 10vw; 
     }
 
     #time {
-        font-size: 15vw;
+        font-size: 12vw;
     }
 
     button {
-        font-size: 5vw;
-        width: 40vw;
-        height: 12vh;
+        font-size: 4vw;
+        width: 30vw;
+        height: 10vh;
     }
 }
 

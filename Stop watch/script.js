@@ -41,6 +41,7 @@ function stopClock(){
 function resetClock(){
     stopClock();
     seconds = 0;
+    centiseconds =0;
     setTime();
     document.getElementById("start").textContent = "Start";
 }
