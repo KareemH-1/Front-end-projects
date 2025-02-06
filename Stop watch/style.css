@@ -74,17 +74,17 @@ button {
 @media (max-width: 480px) {
    
     header {
-        font-size: 55px; 
+        font-size: 13vw; 
     }
 
     #time {
-        font-size: 60px;
+        font-size: 15vw;
     }
 
     button {
         font-size: 5vw;
-        width: 25vw;
-        height: 10vh;
+        width: 40vw;
+        height: 12vh;
     }
 }
 
