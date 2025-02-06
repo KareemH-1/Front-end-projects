@@ -1,4 +1,5 @@
 const input = document.getElementById("input"); //letting the variable be equal to the what we got from user input
+const button = document.querySelector("button"); // getting the button element
 function check(){
     const value = input.value.toUpperCase(); // Convert input to uppercase to make sure that the returned bool will be correct even if the user enters lowercase or uppercase , letting a variable be equal to the string we got from the user
     const statue = reverse(value); //letting the variable be equal to the returned bool from the checking function  (we sent the string as the parameter which is to be checked)
@@ -28,3 +29,9 @@ function reverse(value){
 
     return isrev;
 }
+// Listen for the "Enter" key press and trigger the button click
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        button.click(); //trigger the clicking event
+    }
+});
