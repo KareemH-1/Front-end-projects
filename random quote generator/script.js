@@ -1,4 +1,3 @@
-//array for quotes
 const quotes = [
     "“I learned that courage was not the absence of fear, but the triumph over it. The brave man is not he who does not feel afraid, but he who conquers that fear.”",
     "“If you believe it will work, you'll see opportunities. If you believe it won't, you will see obstacles.”",
@@ -16,13 +15,22 @@ const quotes = [
     "“It does not matter how slowly you go as long as you do not stop.”",
     "“You miss 100% of the shots you don't take.”",
     "“The way to get started is to quit talking and begin doing.”",
-    "“on't wait. The time will never be just right.”",
+    "“Don't wait. The time will never be just right.”",
     "“Life isn't about waiting for the storm to pass, it's about learning to dance in the rain.”",
     "“Do not go where the path may lead, go instead where there is no path and leave a trail.”",
     "“Life is 10% what happens to us and 90% how we react to it.”",
     "“The best way to predict the future is to create it.”",
-    "“You must be the change you wish to see in the world.”"
+    "“You must be the change you wish to see in the world.”",
+    "“Happiness is not something ready-made. It comes from your own actions.”",
+    "“The only way to do great work is to love what you do.”",
+    "“Do not go where the path may lead, go instead where there is no path and leave a trail.”",
+    "“The harder you work for something, the greater you'll feel when you achieve it.”",
+    "“The journey of a thousand miles begins with one step.”",
+    "“The future belongs to those who believe in the beauty of their dreams.”",
+    "“Success is not the key to happiness. Happiness is the key to success.”",
+    "“Don't watch the clock; do what it does. Keep going.”"
 ];
+
 
 const usedIndexes = new Set(); //to go through all the array elements without repeating until they are all generated
 const quoteElem = document.getElementById("quote"); //<P> tag where the quotes will be placed
