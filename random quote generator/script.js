@@ -1,3 +1,4 @@
+//array for quotes
 const quotes = [
     "I learned that courage was not the absence of fear, but the triumph over it. The brave man is not he who does not feel afraid, but he who conquers that fear.",
     "If you believe it will work, you'll see opportunities. If you believe it won't, you will see obstacles.",
@@ -24,22 +25,31 @@ const quotes = [
 ];
 
 const usedIndexes = new Set(); //to go through all the array elements without repeating until they are all generated
-const quoteElem = document.getElementById("quote");
+const quoteElem = document.getElementById("quote"); //<P> tag where the quotes will be placed
+//function for the onclick event of the button
 function genQuote(){
-    
+
+        //if all the quotes have been used, reset the usedIndexes
         if (usedIndexes.size === quotes.length){
             usedIndexes.clear();
         }
 
-    while(true){   
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-            if(usedIndexes.has(randomIndex)){
-                continue;
+    // a while loop to go through all the elements of the array to find which hasnt been generated yet.
+    while(true){    
+           const randomIndex = Math.floor(Math.random() * quotes.length); //get a random quote
+           
+           //if the random quote is already used then retry finding another one
+           if(usedIndexes.has(randomIndex)){
+               continue;
             }
         
-        
+        //make the <p> tag equal to the quote
         quoteElem.innerHTML = quotes[randomIndex];
+        
+        //add the quote's index to the variable that stores the used ones
         usedIndexes.add(randomIndex);
+
+        //break the while loop
         break;
     }
 }
