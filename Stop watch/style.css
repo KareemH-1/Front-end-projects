@@ -12,6 +12,7 @@ body {
     height: 100%;
     justify-content: center;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 /* Custom Font */
