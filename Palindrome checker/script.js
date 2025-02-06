@@ -4,11 +4,11 @@ function check(){
     const statue = reverse(value); //letting the variable be equal to the returned bool from the checking function  (we sent the string as the parameter which is to be checked)
     //if the variable is true
     if(statue){
-        alert("The word you entered is a palindrome");
+        alert("Palindrome!");
     }
     //if its false
     else{
-        alert("Palindrome!");
+        alert("The word you entered is a palindrome");
     }
     input.value=""; //remove the input text once it has been checked
 }
