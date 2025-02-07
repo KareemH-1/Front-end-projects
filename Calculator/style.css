@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(54, 54, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#frame {
+    background-color: rgb(20, 19, 19);
+    width: 90vw; 
+    max-width: 400px; 
+    height: 600px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px inset green;
+    box-shadow: 2px 1px 25px 1px rgba(172, 255, 47, 0.479);
+    padding: 15px;
+}
+
+/* Custom Font */
+@font-face { 
+    font-family: 'DigitalNumb';
+    src: url('fonts/digital-7.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#display {
+    font-family: 'DigitalNumb', sans-serif;
+    background-color: rgb(56, 56, 56);
+    color: rgba(202, 207, 207, 0.786);
+    width: 100%;
+    max-width: 100%; 
+    min-height: 70px; 
+    max-height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+    font-size: 50px;
+    line-height: 1;
+    overflow-x: auto;
+    white-space: nowrap; 
+    box-sizing: border-box;
+    margin-top:3px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(130, 189, 93, 0.214) transparent;
+}
+
+#buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 10fr); 
+    gap: 30px;
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+button {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(35, 35, 35);
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+}
+
+button[id="zero"], button[id="one"], button[id="two"], 
+button[id="three"], button[id="four"], button[id="five"], 
+button[id="six"], button[id="seven"], button[id="eight"], 
+button[id^="nine"] {
+    background-color: rgb(50, 50, 50);
+}
+
+#plus, #minus, #multiply, #divide , #remainder {
+    background-color: rgb(0, 100, 0);
+}
+
+#equal {
+    background-color: rgb(0, 150, 0);
+    grid-column: 1 / 5;
+}
+
+#C-remove {
+    background-color: rgb(150, 0, 0);
+}
+
+
+button:hover {
+    filter: brightness(1.2);
+}
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(193, 222, 193, 0.5);
+}
