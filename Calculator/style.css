@@ -20,7 +20,22 @@ body {
     }
 }
 
+@keyframes frameColor {
+    0% {
+        border: 2px inset green;
+        box-shadow: 0 0 10px 2px rgba(172, 255, 47, 0.5), 0 0 20px 4px rgba(172, 255, 47, 0.5), 0 0 30px 6px rgba(172, 255, 47, 0.5);
+    }
+    50% {
+        border: 2px inset rgb(0, 206, 0);
+        box-shadow: 0 0 15px 2px rgba(153, 255, 0, 0.7), 0 0 25px 5px rgba(153, 255, 0, 0.7), 0 0 35px 7px rgba(153, 255, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 10px 2px rgba(172, 255, 47, 0.5), 0 0 20px 4px rgba(172, 255, 47, 0.5), 0 0 30px 6px rgba(172, 255, 47, 0.5);
+    }
+}
+
 #frame {
+    animation: frameColor 10s infinite alternate;
     background-color: rgb(20, 19, 19);
     width: 90vw; 
     max-width: 400px; 
