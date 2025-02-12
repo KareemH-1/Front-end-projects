@@ -1,3 +1,4 @@
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,21 +8,23 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: #c04848;
     background: linear-gradient(to right, #c04848, #480048);
     color: #fff;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items from the top */
 }
 
 .Calculator {
     width: 100%;
     max-width: 600px;
-    margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .Calculator h1 {
     font-size: 60px;
+    margin-bottom: 20px;
 }
 
 .Calculator span {
@@ -80,7 +83,6 @@
     transform: scale(0.95);
 }
 
-
 p {
     font-size: 20px;
     color: #fff;
@@ -93,4 +95,103 @@ p {
 #age span {
     color: #500073;
     font-weight: bold;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .Calculator {
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1rem;
+    }
+
+    .Calculator h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .input-box {
+        margin: 15px 0;
+        padding: 20px;
+    }
+    
+    .input-box input {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .input-box button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    p {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    #age span {
+        font-size: 14px;
+    }
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+    .Calculator {
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1rem;
+    }
+
+    .Calculator h1 {
+        font-size: 45px;
+        text-align: center;
+    }
+
+    .input-box {
+        margin: 20px 0;
+        padding: 25px;
+        flex-direction: column;
+    }
+
+    .input-box input {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+
+
+    p {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .Calculator {
+        margin-top: 3rem;
+    }
+
+    .Calculator h1 {
+        font-size: 75px;
+    }
+
+    .input-box {
+        padding: 40px;
+    }
+
+    .input-box input {
+        font-size: 20px;
+    }
+
+    .input-box button {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 24px;
+    }
 }
