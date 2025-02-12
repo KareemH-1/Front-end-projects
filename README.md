@@ -4,7 +4,7 @@ Welcome to the Front-End Projects repository! This repository contains basic fro
 
 Live Demo
 ---------
-Check out the project live: [GitHub Pages](https://karxb.github.io/Front-end-projects/)
+Check out the project live: [GitHub Pages](https://kareemh-1.github.io/Front-end-projects/)
 
 Getting Started
 ---------------
