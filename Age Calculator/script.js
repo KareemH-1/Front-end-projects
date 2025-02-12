@@ -1,6 +1,12 @@
 let userInput = document.getElementById("date");
 userInput.max = new Date().toISOString().split("T")[0];
 
+userInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        calculateAge();  // Call the calculateAge function when Enter is pressed
+    }
+});
+
 function calculateAge() {
     let birthDate = new Date(userInput.value);
     
