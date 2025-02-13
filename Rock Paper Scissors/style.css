@@ -26,6 +26,11 @@ h1{
     color: white;
     font-size: 46px;
     position: relative;
+    transition: all 0.3s ease;
+}
+.score:hover{
+    transform: scale(1.05);
+    cursor: none;
 }
 
 .badge{
@@ -54,6 +59,7 @@ h1{
     text-align: center;
     margin: 40px;
 }
+
 .choices{
     text-align: center;
     margin-top: 50px;
