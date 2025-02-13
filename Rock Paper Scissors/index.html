@@ -12,17 +12,25 @@
         <div id="PlayerScore" class="badge">Player</div>
         <div id="ComputerScore" class="badge">Computer</div>
         <span id="user-score">0</span>:<span id="computer-score">0</span>
+    </div>    
+    <div class="result">
+        <p>Paper wins over Rock. You win!</p>
     </div>
-</div>    
-<div class="result">
-    <p>Paper wins over Rock. You win!</p>
-</div>
-
     <div class="choices">    
         <button id="Rock">✊</button>
         <button id="Paper">🫱</button>
         <button id="Scissors">✌️</button>
+    </div>
     <p id="message">Make your move</p>
+
+    <div id="overlay">
+        <p id="rolling-text">✊</p>
+    </div>
+
+
+    <audio id="rolling-sound" src="Audios/old-machine-184439.mp3"></audio>
+    <audio id="popping-sound" src="Audios/wheel-spin-click-slow-down-101152.mp3"></audio>
+
     <script src="script.js"></script>
 </body>
 </html>

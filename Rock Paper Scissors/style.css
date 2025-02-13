@@ -91,3 +91,55 @@ h1{
     font-weight: bold;
     margin-top: 20px;
 }
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 100px;
+}
+
+#rolling-text {
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { 
+        transform: scale(1); 
+    }
+    to { 
+        transform: scale(1.2); 
+    }
+}
+
+
+@keyframes Pop {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.4);
+    }
+    60% {
+        transform: scale(0.9);
+    }
+    80% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.pop-effect {
+    animation: Pop 0.5s ease-out;
+}
