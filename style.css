@@ -16,9 +16,23 @@ hr{
     border: none;
 }
 
-p{
+p {
     font-size: 22px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 5s steps(50) 1s alternate-reverse infinite;
 }
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
 
 h1 {
     margin-bottom: 20px;
