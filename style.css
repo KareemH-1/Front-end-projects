@@ -79,13 +79,12 @@ li a {
     height: 100%;
     padding: 20px;
     border-radius: 8px;
-    transition: all 0.65s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 
 li a:hover {
     color: #0392ea;
-    text-decoration: underline;
 }
 
 
@@ -155,19 +154,8 @@ li span {
 
 a {
     text-decoration: none;
-    color: #ffffff;
     font-size: 25px;
     text-align: left; 
     padding-left: 10px; 
     transition: color 0.25s ease-in-out;
-}
-
-li:hover {
-    transform: scale(1.05) translateY(-10px);
-}
-
-a:hover {
-    color: #0392ea;
-    cursor: pointer;
-    text-decoration: underline;
 }
