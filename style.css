@@ -52,16 +52,31 @@ ul {
 }
 
 li {
+    margin: 10px 0;
+    padding: 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+li a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 0;
+    text-decoration: none;
+    color: white;
     padding: 20px;
-    border-radius: 8px;
     background-color: #1c2e4a;
+    border-radius: 8px;
     box-shadow: 0px 7px 46px 0px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-    overflow: hidden;
+    transition:all 0.3s ease-in-out;
+}
+
+
+li a:hover {
+    background-color: #23395d;
+    transform: scale(1.05) translateY(-10px);
+    text-decoration: none;
 }
 
 .text {
@@ -84,38 +99,19 @@ li span {
     width: auto;
 }
 
-a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 25px;
-    text-align: left;
-    padding-left: 10px;
-    transition: color 0.25s ease-in-out;
-}
-
-li:hover {
-    transform: scale(1.05) translateY(-10px);
-}
-
-a:hover {
-    color: #0392ea;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
 .image {
     width: 100%;
     height: 200px;
-    background-size: contain; 
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out;
 }
+
 .image:hover {
     transform: scale(1.05) translateY(-5px);
 }
 
-/* Scrollbar styles */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -125,10 +121,6 @@ a:hover {
 ::-webkit-scrollbar-thumb {
     background-color: #BBE1FA;
     border-radius: 10px;
-    height: 4px;
-    width: 4px;
-    border-radius: 10px;
-    transition: all 1s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
