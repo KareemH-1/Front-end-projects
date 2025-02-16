@@ -1,7 +1,5 @@
 body {
-    background: linear-gradient(90deg, #00FFFF, #FF00FF);
-    background-size: cover; 
-    background-position: center center;  
+    background:#171717;  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,23 +24,28 @@ header {
     font-size: 10vw;
     text-align: center;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #FF00FF ,  #00FFFF);
+    background: linear-gradient(90deg, #2EB62C ,  #C5E8B7);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
 }
 
 #time {
-    font-size: 8vw;
+    font-size: 9vw;
     font-weight: bold;
     background-color: #00ffff1c;
     color: #FFFFFF;
-    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8), 0px 0px 20px rgba(255, 0, 255, 0.8);
+    text-shadow: 0px 0px 10px #2EB62C, 0px 0px 20px #C5E8B7;
     padding: 10px;
     border-radius: 10px;
-    border: 1px inset #FF00FF;
+    border: 1px inset #2EB62C;
+    transition: all 0.3s ease-in-out;
 }
 
+#time:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px #2EB62C, 0px 0px 20px #C5E8B7;
+}
 button {
     font-size: 3vw;
     font-family: 'Azontix', Arial, sans-serif;
