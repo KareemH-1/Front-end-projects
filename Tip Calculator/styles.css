@@ -56,7 +56,14 @@ input {
     transition: border-color 0.3s ease, transform 0.2s ease-in-out, background-color 0.3s ease;
     display: block;
 }
-
+::-webkit-input-placeholder{
+    color: #968e6f;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+::-webkit-inner-spin-button{
+    display: none;
+}
 input:focus {
     border-color: #ffcc00;
     background-color: #333;
