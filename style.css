@@ -117,12 +117,20 @@ li a:hover {
     margin-bottom: 10px;
 }
 
-li span {
-    font-size: 25px;
+li span#note{
+    font-size: 10px;
     font-weight: bold;
     color: #BBE1FA;
     width: 30px;
     text-align: left;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+li:hover span#note {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #note {
@@ -168,12 +176,7 @@ li span {
     width: 30px;
     text-align: left; 
 }
-#note {
-    font-size: 10px;
-    margin-left: 10px;
-    color: #ffffff83;
-    width: auto;
-}
+
 
 a {
     text-decoration: none;
