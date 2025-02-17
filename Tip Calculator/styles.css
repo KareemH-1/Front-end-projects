@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(135deg, #171717, #2e2e2e);
     color: white;
@@ -20,9 +24,11 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
     width: 350px;
     max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .container:hover {
@@ -47,11 +53,13 @@ input {
     font-size: 16px;
     margin: 10px 0;
     outline: none;
-    transition: border-color 0.3s ease, transform 0.2s ease-in-out;
+    transition: border-color 0.3s ease, transform 0.2s ease-in-out, background-color 0.3s ease;
+    display: block;
 }
 
 input:focus {
     border-color: #ffcc00;
+    background-color: #333;
     transform: scale(1.02);
 }
 
@@ -84,4 +92,3 @@ button:hover {
     transform: translateY(10px);
     transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
-
