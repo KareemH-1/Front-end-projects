@@ -1,0 +1,72 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background for contrast */
+}
+
+hr {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #007BFF;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus,
+input:hover {
+    border-color: #0056b3;
+    transform: scale(1.03);
+}
+
+::-webkit-input-placeholder {
+    color: #6f8c96;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.weather-info {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-align: center;
+    background-color: #007BFF;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    border: 2px solid transparent;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.weather-info:hover {
+    transform: scale(1.05) translateY(-5px);
+    border-color: #007bff;
+}
