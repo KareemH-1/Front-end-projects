@@ -143,23 +143,25 @@ li:hover span#note {
 .image {
     width: 100%;
     height: 200px;
-    background-size: contain;
+    background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
     transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
 .image:hover {
-    transform: scale(1.05) translateY(-5px);
-    border: 2px solid #0392ea;
-    box-shadow: 0 0 10px #0392ea;
+    transform: scale(1.05) translateY(5px);
+    outline: 2px solid #0392ea;
+    box-shadow: 0 0 10px #0392ea, inset 0 0 0 2px #0392ea; 
 }
+
 
 ::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
     background-color: #0e1e39;
 }
+
 
 ::-webkit-scrollbar-thumb {
     background-color: #BBE1FA;
