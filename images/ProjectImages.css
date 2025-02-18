@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    overflow: hidden;
+}
+
+.image-viewer {
+    width: 100vw;
+    height: 100vh; /* Full screen */
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.image-viewer::-webkit-scrollbar {
+    height: 12px;
+}
+
+.image-viewer::-webkit-scrollbar-track {
+    background: #222;
+}
+
+.image-viewer::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+    border: 3px solid #222;
+}
+
+.image-container {
+    display: flex;
+    gap: 60px;
+    padding: 20px;
+    height: 100vh;
+    align-items: center;
+    margin-top: -40px;
+    margin-left: 50px; margin-right: 50px;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.thumbnail {
+    width: 300px;
+    height: 75vh;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    filter: brightness(0.7);
+    cursor: pointer;
+    scroll-snap-align: center;
+    transform: rotate(-5deg);
+}
+
+.thumbnail:nth-child(odd) {
+    transform: rotate(5deg);
+}
+
+.thumbnail:hover {
+    transform: scale(1.15) rotate(0deg);
+    filter: brightness(1);
+    box-shadow: 0px 0px 40px rgba(0, 123, 255, 1);
+    z-index: 10;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.fullscreen img {
+    width: 80%;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 12px;
+    transition: all 0.5s ease-in-out;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.fullscreen img:hover {
+    transform: scale(1.1);
+}
+
+.fullscreen-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
