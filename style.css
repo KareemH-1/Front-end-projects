@@ -151,6 +151,8 @@ li:hover span#note {
 
 .image:hover {
     transform: scale(1.05) translateY(-5px);
+    border: 2px solid #0392ea;
+    box-shadow: 0 0 10px #0392ea;
 }
 
 ::-webkit-scrollbar {
@@ -185,3 +187,4 @@ a {
     padding-left: 10px; 
     transition: color 0.25s ease-in-out;
 }
+
