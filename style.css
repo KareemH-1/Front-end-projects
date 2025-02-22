@@ -215,28 +215,28 @@ a {
     padding-left: 10px; 
     transition: color 0.25s ease-in-out;
 }
-#ImgButton{
+#ImgButton {
     background: linear-gradient(280deg, #16213E 10%, #0F3460 90%);
-    border-radius: 8px;
-    box-shadow: 0px 7px 46px 0px rgba(0, 0, 0, 0.3);
-    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 12px 20px;
     border: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     color: #BBE1FA;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
+    width: auto;
+    min-width: 150px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 12px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    transition: all 0.3s ease-in-out;
-
 }
+
 #ImgButton:hover {
-    background: white;
+    background: linear-gradient(280deg, #0F3460 10%, #16213E 90%);
     color: #0392ea;
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0px 8px 25px rgba(3, 146, 234, 0.4);
 }
-
-
