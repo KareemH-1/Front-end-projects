@@ -167,20 +167,20 @@ li:hover span#note {
     width: auto;
 }
 
-.image {
+img {
     width: 100%;
-    height: 200px;
-    background-size: contain; 
-    background-position: center;
-    background-repeat: no-repeat;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
     transition: all 0.3s ease-in-out;
-    position: relative;
+    border-radius: 8px;
 }
 
-.image:hover {
+img:hover {
+    transform: scale(1.05);
     transform: scale(1.05) translateY(5px);
-
 }
+
 
 
 ::-webkit-scrollbar {
