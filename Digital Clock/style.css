@@ -127,6 +127,9 @@ h1 {
 }
 
 @media (max-width: 600px) {
+    body{
+        overflow: hidden;
+    }
     h1 {
         font-size: 24px;
     }
@@ -155,6 +158,9 @@ h1 {
 }
 
 @media (max-width: 400px) {
+    body{
+        overflow: hidden;
+    }
     h1 {
         margin-left: 5px;
         font-size: 20px;
@@ -274,7 +280,7 @@ h1 {
     }
 
     #all{
-        
+
         top: 200px;
     }
     #Frame {
@@ -342,4 +348,12 @@ h1 {
     margin-right: 10px;
 }
 
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.colon {
+    animation: blink 0.9s infinite;
+}
 
