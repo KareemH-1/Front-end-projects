@@ -2,24 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateClock() {
         const now = new Date();
         let hours = now.getHours();
-        let ampm;
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        let ampm = document.getElementById("AMPM");
 
         if (hours >= 12) {
-            ampm = "PM";
+            ampm.textContent = "PM";
         } else {
-            ampm = "AM";
+            ampm.textContent = "AM";
         }
 
         if (hours > 12) {
-            hours = hours - 12;
-        } 
+            hours -= 12;
+        }
         
         if (hours === 0) {
             hours = 12;
         }
-
-        let minutes = now.getMinutes();
-        let seconds = now.getSeconds();
 
         if (minutes < 10) {
             minutes = "0" + minutes;
@@ -29,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             seconds = "0" + seconds;
         }
 
-        const timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
-        document.getElementById("clock").querySelector("p").textContent = timeString;
+        document.getElementById("clock").querySelector("p").innerHTML = hours + ":" + minutes + ":" + seconds + " <span id='AMPM'>" + ampm.textContent + "</span>";
     }
 
     setInterval(updateClock, 1000);
