@@ -6,19 +6,19 @@ var ctx = canvas.getContext("2d");
 function updateCanvasSize() {
     var container = document.querySelector(".canvas");
     canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+    canvas.height = Math.min(container.clientHeight, window.innerHeight * 0.6); // Limits height to 60% of viewport
 }
 
-// Call updateCanvasSize initially
-updateCanvasSize();
 
 // Ensure size updates if the window is resized
 window.addEventListener("resize", updateCanvasSize);
+updateCanvasSize();
 
 // Initial brush settings
 var painting = false;
 var brushColor = "black";
 var brushSize = 5;
+var defaultBrushSize = 5;
 
 // Create a cursor ball for the eraser
 var cursorBall = document.createElement("div");
@@ -77,13 +77,16 @@ canvas.addEventListener("mousemove", draw);
 // Function to change brush color
 function changeColor(color) {
     brushColor = color;
+    brushSize = defaultBrushSize; // Reset brush size when switching colors
     document.getElementById("eraser").classList.remove("active-eraser");
     cursorBall.style.display = "none";
-    document.querySelectorAll(".color-options button").forEach(btn => btn.classList.remove("active-color"));
+    document.querySelectorAll(".color-options button").forEach(function(btn) {
+        btn.classList.remove("active-color");
+    });
     document.getElementById(color).classList.add("active-color");
 }
 
-document.querySelectorAll(".color-options button").forEach(button => {
+document.querySelectorAll(".color-options button").forEach(function(button) {
     button.addEventListener("click", function() {
         changeColor(this.id);
     });
@@ -91,12 +94,15 @@ document.querySelectorAll(".color-options button").forEach(button => {
 
 document.getElementById("color-picker").addEventListener("input", function() {
     brushColor = this.value;
+    brushSize = defaultBrushSize;
 });
 
 // Function to change brush size
 function changeBrushSize(size, element) {
     brushSize = size;
-    document.querySelectorAll(".size-options button").forEach(btn => btn.classList.remove("active-size"));
+    document.querySelectorAll(".size-options button").forEach(function(btn) {
+        btn.classList.remove("active-size");
+    });
     element.classList.add("active-size");
 }
 
@@ -125,8 +131,12 @@ document.getElementById("medium").classList.add("active-size");
 function activateEraser() {
     brushColor = "white";
     brushSize = 30;
-    document.querySelectorAll(".color-options button").forEach(btn => btn.classList.remove("active-color"));
-    document.querySelectorAll(".size-options button").forEach(btn => btn.classList.remove("active-size"));
+    document.querySelectorAll(".color-options button").forEach(function(btn) {
+        btn.classList.remove("active-color");
+    });
+    document.querySelectorAll(".size-options button").forEach(function(btn) {
+        btn.classList.remove("active-size");
+    });
     document.getElementById("eraser").classList.add("active-eraser");
     cursorBall.style.display = "block";
     cursorBall.style.width = brushSize + "px";

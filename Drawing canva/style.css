@@ -36,9 +36,8 @@ h1 {
     border: 2px solid black;
     background: white;
     border-radius: 10px;
-    width: 95%;
-    height: 600px;
-    max-width: 900px;
+    max-height: 60vh; 
+    width: 100%;
 }
 
 .controls {
