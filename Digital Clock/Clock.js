@@ -46,7 +46,31 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("Date").innerText = `${day}/${month}/${year}`;
     }
 
+    function highlightCurrentDay() {
+        let days = ["saturday", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday"];
+        let now = new Date();
+        let currentDayId = days[now.getDay()]; // Get the current day's ID
+
+        // Remove glow effect from all days
+        for (let i = 0; i < days.length; i++) {
+            let dayElement = document.getElementById(days[i]);
+            if (dayElement) {
+                dayElement.style.opacity = "0.2"; // Dim other days
+                dayElement.style.textShadow = "none"; // Remove glow
+            }
+        }
+
+        // Apply glow effect to the current day
+        let currentDayElement = document.getElementById(currentDayId);
+        if (currentDayElement) {
+            currentDayElement.style.opacity = "1"; // Fully visible
+            currentDayElement.style.textShadow = "0px 0px 20px rgba(255, 165, 0, 1)"; // Smooth glow effect
+        }
+    }
+
     setInterval(updateClock, 1000); // Update the clock every second
+    setInterval(highlightCurrentDay, 1000); // Ensure the highlight updates every second
     updateClock(); // Initial call to display time immediately
     updateDate(); // Set the date once on load
+    highlightCurrentDay(); // Highlight the current day
 });
