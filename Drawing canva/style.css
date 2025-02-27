@@ -10,33 +10,35 @@
     overflow: hidden;
     border-radius: 20px;
 }
-h1{
+
+h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: linear-gradient(45deg , rgb(221, 230, 98) , rgb(88, 222, 121) , rgb(201, 61, 61) , rgb(40, 143, 246)  );
+    background: linear-gradient(45deg, rgb(221, 230, 98), rgb(88, 222, 121), rgb(201, 61, 61), rgb(40, 143, 246));
     background-clip: text;
-    color:transparent;
+    color: transparent;
     background-size: 400% 400%;
     animation: gradient 25s ease infinite;
 }
 
-@keyframes gradient{
-    0%{
+@keyframes gradient {
+    0% {
         background-position: 0%;
     }
-    50%{
+    50% {
         background-position: 100%;
     }
-    100%{
+    100% {
         background-position: 0%;
     }
-
 }
+
 .canvas {
     border: 2px solid black;
     background: white;
     border-radius: 10px;
     width: 95%;
     height: 600px;
+    max-width: 900px;
 }
 
 .controls {
@@ -50,6 +52,8 @@ h1{
 .color-options {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .color-options button {
@@ -75,10 +79,12 @@ button:hover {
 .size-options {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .size-options button {
-    padding: 5px 10px;
+    padding: 8px 15px;
     border: none;
     cursor: pointer;
     background-color: #ddd;
@@ -87,12 +93,12 @@ button:hover {
     transition: all 0.2s ease-in-out;
 }
 
-.size-options button:hover{
-    background-color:#b6b6b6
+.size-options button:hover {
+    background-color: #b6b6b6;
 }
 
 #clear {
-    padding: 8px 100px;
+    padding: 10px 80px;
     background-color: rgb(224, 58, 58);
     color: white;
     border: none;
@@ -102,19 +108,44 @@ button:hover {
     transition: all 0.2s ease-in-out;
 }
 
-#clear:hover{
-    background-color:red;
+#clear:hover {
+    background-color: red;
 }
-
 
 .active-color {
-    border: 10px solid white;
+    border: 5px solid white;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.7);
-    transform:scale(1.1)
+    transform: scale(1.1);
 }
-
 
 .active-size {
     background-color: rgba(0, 0, 0, 0.2) !important;
-    transform:scale(1.1)
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .canvas {
+        height: 400px;
+    }
+
+    .color-options button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .size-options button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    #clear {
+        padding: 8px 50px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .canvas {
+        height: 500px;
+    }
 }

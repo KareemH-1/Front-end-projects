@@ -88,6 +88,9 @@ for (var i = 0; i < colorButtons.length; i++) {
         changeColor(this.id);
     });
 }
+document.getElementById("color-picker").addEventListener("input", function() {
+    brushColor = this.value;
+});
 
 // Function to change brush size
 function changeBrushSize(size, element) {
