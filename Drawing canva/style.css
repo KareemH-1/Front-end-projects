@@ -149,3 +149,38 @@ button:hover {
         height: 500px;
     }
 }
+
+#color-picker {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    padding: 5px;
+    background: none;
+    outline: none;
+    appearance: none;
+    border-radius: 20px;
+    border: 2px solid black;
+    transition: all 0.2s ease-in-out;
+}
+
+#color-picker::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+#color-picker::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+
+#color-picker:hover {
+    transform: scale(1.1);
+    border-color: #444;
+}
+
+#color-picker:active {
+    transform: scale(1);
+    border-color: #222;
+}
+
