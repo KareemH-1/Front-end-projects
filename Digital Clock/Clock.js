@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function highlightCurrentDay() {
-        let days = ["saturday", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday"];
+        let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
         let now = new Date();
-        let currentDayId = days[now.getDay()+1]; // Get the current day's ID
+        let currentDayId = days[now.getDay()]; // Get the current day's ID
 
         // Remove glow effect from all days
         for (let i = 0; i < days.length; i++) {
