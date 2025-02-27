@@ -357,3 +357,9 @@ h1 {
     animation: blink 0.9s infinite;
 }
 
+#saturday , #sunday , #monday , #tuesday , #wednesday , #thursday , #friday {
+    transition: transform 0.3s ease-in-out;
+}
+#saturday:hover, #sunday:hover, #monday:hover, #tuesday:hover, #wednesday:hover, #thursday:hover, #friday:hover {
+    transform: scale(1.1);
+}
