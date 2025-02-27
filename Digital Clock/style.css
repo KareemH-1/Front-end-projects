@@ -1,0 +1,43 @@
+* {
+    background-color: #09080d;
+    color: #fe6807;
+    font-family: "Phudu", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+#Frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #fe6807;
+    border-radius: 15px;
+    padding: 25px;
+    width: 420px;
+    height: 220px;
+    box-shadow: 5px 5px 1px #d64c0b;
+}
+
+#clock {
+    background-color: #09080d;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 130px;
+    font-size: 36px;
+    margin: 10px auto;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
