@@ -35,7 +35,7 @@ h1{
     border: 2px solid black;
     background: white;
     border-radius: 10px;
-    width: 550px;
+    width: 95%;
     height: 600px;
 }
 
@@ -104,4 +104,17 @@ button:hover {
 
 #clear:hover{
     background-color:red;
+}
+
+
+.active-color {
+    border: 10px solid white;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.7);
+    transform:scale(1.1)
+}
+
+
+.active-size {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    transform:scale(1.1)
 }

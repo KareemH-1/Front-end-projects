@@ -2,9 +2,18 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-// Set canvas size based on CSS
-canvas.width = 550;
-canvas.height = 510;
+// Function to set canvas size dynamically
+function updateCanvasSize() {
+    var container = document.querySelector(".canvas");
+    canvas.width = container.clientWidth; // Set width dynamically
+    canvas.height = container.clientHeight; // Set height dynamically
+}
+
+// Call updateCanvasSize initially
+updateCanvasSize();
+
+// Ensure size updates if the window is resized
+window.addEventListener("resize", updateCanvasSize);
 
 // Initial brush settings
 var painting = false;
@@ -26,6 +35,7 @@ function startPosition(event) {
     ctx.beginPath();
     var pos = getMousePos(event);
     ctx.moveTo(pos.x, pos.y);
+    draw(event);
 }
 
 // Function to stop drawing
@@ -60,6 +70,15 @@ canvas.addEventListener("mousemove", draw);
 // Function to change brush color
 function changeColor(color) {
     brushColor = color;
+
+    // Remove active class from all colors
+    var colorButtons = document.querySelectorAll(".color-options button");
+    for (var i = 0; i < colorButtons.length; i++) {
+        colorButtons[i].classList.remove("active-color");
+    }
+
+    // Add active class to the selected color
+    document.getElementById(color).classList.add("active-color");
 }
 
 // Attach event listeners to color buttons
@@ -71,19 +90,28 @@ for (var i = 0; i < colorButtons.length; i++) {
 }
 
 // Function to change brush size
-function changeBrushSize(size) {
+function changeBrushSize(size, element) {
     brushSize = size;
+
+    // Remove active class from all size buttons
+    var sizeButtons = document.querySelectorAll(".size-options button");
+    for (var i = 0; i < sizeButtons.length; i++) {
+        sizeButtons[i].classList.remove("active-size");
+    }
+
+    // Add active class to the selected size button
+    element.classList.add("active-size");
 }
 
 // Attach event listeners to size buttons
 document.getElementById("small").addEventListener("click", function() {
-    changeBrushSize(3);
+    changeBrushSize(3, this);
 });
 document.getElementById("medium").addEventListener("click", function() {
-    changeBrushSize(5);
+    changeBrushSize(5, this);
 });
 document.getElementById("large").addEventListener("click", function() {
-    changeBrushSize(8);
+    changeBrushSize(8, this);
 });
 
 // Function to clear the canvas
@@ -93,3 +121,7 @@ function clearCanvas() {
 
 // Attach event listener to clear button
 document.getElementById("clear").addEventListener("click", clearCanvas);
+
+// Set default active selections
+document.getElementById("black").classList.add("active-color");
+document.getElementById("medium").classList.add("active-size");
