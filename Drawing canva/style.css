@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(45deg , rgb(221, 230, 98) , rgb(88, 222, 121) , rgb(201, 61, 61) , rgb(40, 143, 246)  );
+    background-clip: text;
+    color:transparent;
+    background-size: 400% 400%;
+    animation: gradient 25s ease infinite;
+}
+
+@keyframes gradient{
+    0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+
+}
+.canvas {
+    border: 2px solid black;
+    background: white;
+    border-radius: 10px;
+    width: 550px;
+    height: 600px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-options button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#black { background-color: black; }
+#red { background-color: red; }
+#green { background-color: green; }
+#blue { background-color: blue; }
+#yellow { background-color: yellow; }
+#orange { background-color: orange; }
+
+.size-options {
+    display: flex;
+    gap: 10px;
+}
+
+.size-options button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.size-options button:hover{
+    background-color:#b6b6b6
+}
+
+#clear {
+    padding: 8px 15px;
+    background-color: rgb(224, 58, 58);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#clear:hover{
+    background-color:red;
+}
