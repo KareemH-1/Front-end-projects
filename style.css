@@ -130,4 +130,5 @@ li span#note {
 li:hover span#note {
     opacity: 1;
     transform: translate(-50%, 0);
+    box-shadow: 0 0 8px rgba(0, 223, 130, 0.5);
 }
