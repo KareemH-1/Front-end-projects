@@ -95,6 +95,11 @@ img:hover {
     background: #03a86d;
     transform: scale(1.05);
 }
+#ImgButton:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 223, 130, 0.6);
+}
+
 
 ::-webkit-scrollbar {
     width: 8px;
