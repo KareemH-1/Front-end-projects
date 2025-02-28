@@ -9,7 +9,6 @@ function updateCanvasSize() {
     canvas.height = Math.min(container.clientHeight, window.innerHeight * 0.7); // Limits height to 70% of viewport
 }
 
-
 // Ensure size updates if the window is resized
 window.addEventListener("resize", updateCanvasSize);
 updateCanvasSize();
@@ -36,13 +35,14 @@ document.body.appendChild(cursorBall);
 function getMousePos(event) {
     var rect = canvas.getBoundingClientRect();
     return {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top
+        x: (event.touches ? event.touches[0].clientX : event.clientX) - rect.left,
+        y: (event.touches ? event.touches[0].clientY : event.clientY) - rect.top
     };
 }
 
 // Function to start drawing
 function startPosition(event) {
+    event.preventDefault();
     painting = true;
     ctx.beginPath();
     var pos = getMousePos(event);
@@ -73,6 +73,13 @@ function draw(event) {
 canvas.addEventListener("mousedown", startPosition);
 canvas.addEventListener("mouseup", endPosition);
 canvas.addEventListener("mousemove", draw);
+
+canvas.addEventListener("touchstart", startPosition);
+canvas.addEventListener("touchend", endPosition);
+canvas.addEventListener("touchmove", function(event) {
+    event.preventDefault();
+    draw(event);
+});
 
 // Function to change brush color
 function changeColor(color) {
