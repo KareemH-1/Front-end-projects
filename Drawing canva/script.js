@@ -6,7 +6,7 @@ var ctx = canvas.getContext("2d");
 function updateCanvasSize() {
     var container = document.querySelector(".canvas");
     canvas.width = container.clientWidth;
-    canvas.height = Math.min(container.clientHeight, window.innerHeight * 0.6); // Limits height to 60% of viewport
+    canvas.height = Math.min(container.clientHeight, window.innerHeight * 0.7); // Limits height to 70% of viewport
 }
 
 
