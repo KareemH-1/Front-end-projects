@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -14,6 +18,25 @@ h1 {
     font-weight: bold;
     color: #00df82;
     margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 60%;
+    height: 3px;
+    background: #00df82;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+h1:hover::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 hr {
