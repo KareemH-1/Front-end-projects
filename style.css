@@ -107,12 +107,14 @@ img:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #00df82;
-    border-radius: 10px;
+    background: linear-gradient(180deg, #00df82, #017d4d);
+    border-radius:10px;
+
 }
 
+
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(11, 255, 109);
+    background: linear-gradient(180deg , #017d4d ,  #00df82);
 }
 
 
