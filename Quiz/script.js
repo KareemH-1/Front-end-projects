@@ -21,53 +21,58 @@ const questions = [
     { question: "Which country is famous for the Great Wall?", answers: ["Japan", "India", "China", "Russia"], correct: 2 }
 ];
 
-let usedIndexes = new Set();
+
+let currentQuestionIndex = 0;
 let score = 0;
-let currentQuestionIndex;
+let usedIndexes = new Set();
 
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
 const nextButton = document.getElementById("next-btn");
+const currentQuestionElement = document.getElementById("current-question");
 
 function startQuiz() {
-    usedIndexes.clear();
+    currentQuestionIndex = 0;
     score = 0;
+    usedIndexes.clear();
     nextButton.classList.add("hide");
     showQuestion();
 }
 
-function getRandomQuestion() {
-    if (usedIndexes.size === questions.length) return null; // All questions used
-    let randomIndex;
-    while (true) {
-        randomIndex = Math.floor(Math.random() * questions.length);
+function getRandomIndex() {
+    while (usedIndexes.size < questions.length) {
+        const randomIndex = Math.floor(Math.random() * questions.length);
         if (!usedIndexes.has(randomIndex)) {
             usedIndexes.add(randomIndex);
             return randomIndex;
         }
     }
+    return null;
 }
 
 function showQuestion() {
-    currentQuestionIndex = getRandomQuestion();
-    if (currentQuestionIndex === null) {
+    let index = getRandomIndex();
+    if (index === null) {
         showScore();
         return;
     }
-    let q = questions[currentQuestionIndex];
+    currentQuestionIndex++;
+    currentQuestionElement.textContent = `Question ${currentQuestionIndex}`;
+
+    let q = questions[index];
     questionElement.textContent = q.question;
     answersElement.innerHTML = "";
-    q.answers.forEach((answer, index) => {
+    q.answers.forEach((answer, idx) => {
         let btn = document.createElement("button");
         btn.classList.add("btn");
         btn.textContent = answer;
-        btn.onclick = () => checkAnswer(index);
+        btn.onclick = () => checkAnswer(idx, index);
         answersElement.appendChild(btn);
     });
 }
 
-function checkAnswer(index) {
-    if (index === questions[currentQuestionIndex].correct) {
+function checkAnswer(selectedIndex, questionIndex) {
+    if (selectedIndex === questions[questionIndex].correct) {
         score++;
         alert("Correct!");
     } else {
