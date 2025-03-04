@@ -28,7 +28,7 @@ button {
     border: none;
     font-size: 20px;
     border-radius: 17px;
-    transition: background 0.3s ease;
+    transition: transform 0.3s ease;
 }
 button:hover {
     transform: scale(1.1);
@@ -46,10 +46,21 @@ button:hover {
     background: url('images/images.jpg');
     background-size: cover;
 }
-#Remove{
-    background:rgb(255, 255, 255); 
-
-    width : 100px;
-    height:50px;
-    font-size: 10px;
+#Remove {
+    background: white;
+    color: black;
+    width: 180px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+#colorRGP {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    width: 250px;
 }
