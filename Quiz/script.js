@@ -79,11 +79,9 @@ const messageBox = document.getElementById("message-box");
 const messageText = document.getElementById("message-text");
 const closeMessage = document.getElementById("close-message");
 
-function showMessage(message, color) {
+function showMessage(message, type) {
     messageText.textContent = message;
-    messageBox.style.background = color; 
-    messageBox.classList.remove("hide");
-    messageBox.style.opacity = "1";
+    messageBox.className = `show ${type}`;  
 
     let timeout = setTimeout(() => {
         hideMessage();
@@ -96,20 +94,18 @@ function showMessage(message, color) {
 }
 
 function hideMessage() {
-    messageBox.style.opacity = "0";
-    setTimeout(() => {
-        messageBox.classList.add("hide");
-    }, 500);
+    messageBox.classList.remove("show");
 }
 
 function checkAnswer(selectedIndex, questionIndex) {
     if (selectedIndex === questions[questionIndex].correct) {
         score++;
-        showMessage("✅ Correct!", "#1282A2"); 
+        showMessage("✅ Correct!", "correct"); 
     } else {
-        showMessage("❌ Wrong!", "#D72638");
+        showMessage("❌ Wrong!", "wrong");
     }
     setTimeout(showQuestion, 1000); 
 }
+
 
 startQuiz();

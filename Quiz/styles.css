@@ -84,34 +84,52 @@ h2 {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: #034078;
-    color: white;
+    background: rgba(241, 241, 241, 0.95);
+    color: #333;
     padding: 15px 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     width: auto;
-    min-width: 250px;
-    font-size: 1.2rem;
+    min-width: 280px;
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+    transform: translate(-50%, 20px);
+}
+
+#message-box.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 #close-message {
-    background: transparent;
-    color: white;
+    background: none;
+    color: #666;
     border: none;
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.2s;
 }
 
 #close-message:hover {
-        text-decoration: underline;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+.correct {
+    border-left: 5px solid #4CAF50;
+}
+
+.wrong {
+    border-left: 5px solid #F44336;
 }
 
 
