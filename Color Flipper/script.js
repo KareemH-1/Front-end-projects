@@ -19,7 +19,7 @@ function randomColor(){
     const B = Math.round(Math.random()*255);
 
     //change the rgb from numbers to string by using String interpolation
-    const color = `rgb(${R} ${G} ${B})`;
+    const color = `rgb(${R}, ${G}, ${B})`;
     body.style.backgroundColor = color;
-    dispRGB.textContent = `RGB (${R},${G},${B})`;
+    dispRGB.textContent = `rgb(${R}, ${G}, ${B})`;
 }

@@ -60,7 +60,8 @@ button:hover {
     font-weight: bold;
     margin: 20px auto;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255, 255, 255, 0.1);
+    border: 2px solid white;
     border-radius: 10px;
     width: 250px;
 }
