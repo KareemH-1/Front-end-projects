@@ -79,6 +79,41 @@ h2 {
 .hide {
     display: none;
 }
+#message-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #034078;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: auto;
+    min-width: 250px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#close-message {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#close-message:hover {
+        text-decoration: underline;
+}
+
 
 @media (max-width: 600px) {
     .quiz-container {

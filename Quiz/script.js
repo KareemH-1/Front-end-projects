@@ -70,20 +70,46 @@ function showQuestion() {
     });
 }
 
-function checkAnswer(selectedIndex, questionIndex) {
-    if (selectedIndex === questions[questionIndex].correct) {
-        score++;
-        alert("Correct!");
-    } else {
-        alert("Wrong!");
-    }
-    showQuestion();
-}
-
 function showScore() {
     questionElement.textContent = `You scored ${score} out of ${questions.length}!`;
     answersElement.innerHTML = "";
     questionCounter.textContent = "";
+}
+const messageBox = document.getElementById("message-box");
+const messageText = document.getElementById("message-text");
+const closeMessage = document.getElementById("close-message");
+
+function showMessage(message, color) {
+    messageText.textContent = message;
+    messageBox.style.background = color; 
+    messageBox.classList.remove("hide");
+    messageBox.style.opacity = "1";
+
+    let timeout = setTimeout(() => {
+        hideMessage();
+    }, 3000);
+
+    closeMessage.onclick = () => {
+        clearTimeout(timeout);
+        hideMessage();
+    };
+}
+
+function hideMessage() {
+    messageBox.style.opacity = "0";
+    setTimeout(() => {
+        messageBox.classList.add("hide");
+    }, 500);
+}
+
+function checkAnswer(selectedIndex, questionIndex) {
+    if (selectedIndex === questions[questionIndex].correct) {
+        score++;
+        showMessage("✅ Correct!", "#1282A2"); 
+    } else {
+        showMessage("❌ Wrong!", "#D72638");
+    }
+    setTimeout(showQuestion, 1000); 
 }
 
 startQuiz();
