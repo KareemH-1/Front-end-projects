@@ -52,6 +52,15 @@ h2 {
     background-color: #1282A2;
 }
 
+#question-counter {
+    font-size: 14px;
+    color: #FEFCFB;
+    position: relative;
+    bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
 .hide {
     display: none;
 }

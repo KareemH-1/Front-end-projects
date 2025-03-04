@@ -21,21 +21,19 @@ const questions = [
     { question: "Which country is famous for the Great Wall?", answers: ["Japan", "India", "China", "Russia"], correct: 2 }
 ];
 
-
 let currentQuestionIndex = 0;
 let score = 0;
 let usedIndexes = new Set();
 
 const questionElement = document.getElementById("question");
 const answersElement = document.getElementById("answers");
-const nextButton = document.getElementById("next-btn");
 const currentQuestionElement = document.getElementById("current-question");
+const questionCounter = document.getElementById("question-counter");
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     usedIndexes.clear();
-    nextButton.classList.add("hide");
     showQuestion();
 }
 
@@ -58,6 +56,7 @@ function showQuestion() {
     }
     currentQuestionIndex++;
     currentQuestionElement.textContent = `Question ${currentQuestionIndex}`;
+    questionCounter.textContent = `Question ${currentQuestionIndex} out of ${questions.length}`;
 
     let q = questions[index];
     questionElement.textContent = q.question;
@@ -84,9 +83,7 @@ function checkAnswer(selectedIndex, questionIndex) {
 function showScore() {
     questionElement.textContent = `You scored ${score} out of ${questions.length}!`;
     answersElement.innerHTML = "";
-    nextButton.textContent = "Restart Quiz";
-    nextButton.classList.remove("hide");
-    nextButton.onclick = startQuiz;
+    questionCounter.textContent = "";
 }
 
 startQuiz();
