@@ -1,55 +1,99 @@
-body{
-    height: 100vh;
-    background-color: #1d1f29;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
     margin: 0;
-    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-h1{
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    text-align: center;
-    margin: 0px auto;
-}
-.container {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1d1f29, #222431);
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #222431;
-    padding: 20px;
-    border: 1px solid #272937;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
-    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #99ff88;
+    padding-bottom: 5px;
+}
+
+.container {
+    position: relative;
     width: 90%;
-    height: 75%;
+    max-width: 600px;
+    height: 75vh;
+    background: rgba(34, 36, 49, 0.9);
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid #99ff88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .circle {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: left 0.8s ease, top 0.8s ease;
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, #b70000 , #ff0000);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
+    transition: left 0.5s ease-in-out, top 0.5s ease-in-out, transform 0.2s;
+    animation: pulse 1s infinite alternate;
+    cursor: pointer;
+}
+
+.circle:active {
+    transform: scale(0.9);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
 }
 
 .Score {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    background-color: #36384a;
+    bottom: 15px;
+    background: rgba(54, 56, 74, 0.9);
+    color: #ffffff;
     padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    font-size: 20px;
-    text-align: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-left: 3px solid #99ff88;
+    border-right: 3px solid #99ff88;
+    transition: transform 0.2s ease-in-out;
+}
+
+.Score:hover {
+    transform: scale(1.05);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    z-index: -1;
 }
