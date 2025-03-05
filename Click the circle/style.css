@@ -1,0 +1,45 @@
+body{
+    height: 100vh;
+    background-color: #1d1f29;
+    margin: 0;
+    overflow: hidden;
+}
+h1{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    margin: 0px auto;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    background-color: #222431;
+    padding: 20px;
+    border: 1px solid #272937;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    width: 90%;
+    height: 75%;
+}
+.Score {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background-color: #36384a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    text-align: center;
+}
