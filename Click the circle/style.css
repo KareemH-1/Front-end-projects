@@ -15,15 +15,17 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 10px;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: min(2rem, 5vw);
     color: #ffffff;
     margin-bottom: 15px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     border-bottom: 2px solid #99ff88;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 .container {
@@ -39,13 +41,14 @@ h1 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 10px;
 }
 
 .circle {
     position: absolute;
-    width: 35px;
-    height: 35px;
-    background: radial-gradient(circle, #b70000 , #ff0000);
+    width: min(35px, 8vw);
+    height: min(35px, 8vw);
+    background: radial-gradient(circle, #b70000, #ff0000);
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
     transition: left 0.5s ease-in-out, top 0.5s ease-in-out, transform 0.2s;
@@ -73,13 +76,14 @@ h1 {
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: min(1.2rem, 4vw);
     font-weight: 600;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     border-left: 3px solid #99ff88;
     border-right: 3px solid #99ff88;
     transition: transform 0.2s ease-in-out;
+    text-align: center;
 }
 
 .Score:hover {
@@ -96,4 +100,32 @@ h1 {
     backdrop-filter: blur(5px);
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
     z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 60vh;
+    }
+    .circle {
+        width: 30px;
+        height: 30px;
+    }
+    .Score {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 55vh;
+    }
+    .circle {
+        width: 20px;
+        height: 20px;
+    }
+    .Score {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
 }
