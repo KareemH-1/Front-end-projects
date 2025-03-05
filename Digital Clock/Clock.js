@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let month = now.getMonth() + 1;
         let year = now.getFullYear();
         
-        document.getElementById("Date").innerText = `${day}/${month}/${year}`;
+        document.getElementById("Date").innerText = `${month}/${day}/${year}`;
     }
 
     function highlightCurrentDay() {
