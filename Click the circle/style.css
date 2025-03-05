@@ -31,8 +31,8 @@ h1 {
 .container {
     position: relative;
     width: 90%;
-    max-width: 600px;
-    height: 75vh;
+    max-width: 800px;
+    height: 80vh;
     background: rgba(34, 36, 49, 0.9);
     border-radius: 15px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
@@ -46,8 +46,8 @@ h1 {
 
 .circle {
     position: absolute;
-    width: min(35px, 8vw);
-    height: min(35px, 8vw);
+    width: min(50px, 8vw);
+    height: min(50px, 8vw);
     background: radial-gradient(circle, #b70000, #ff0000);
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
@@ -76,7 +76,7 @@ h1 {
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 8px;
-    font-size: min(1.2rem, 4vw);
+    font-size: min(1.5rem, 4vw);
     font-weight: 600;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
@@ -102,16 +102,28 @@ h1 {
     z-index: -1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .container {
-        height: 60vh;
+        max-width: 700px;
+        height: 75vh;
     }
     .circle {
-        width: 30px;
-        height: 30px;
+        width: min(45px, 7vw);
+        height: min(45px, 7vw);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 600px;
+        height: 65vh;
+    }
+    .circle {
+        width: min(40px, 6vw);
+        height: min(40px, 6vw);
     }
     .Score {
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding: 8px 15px;
     }
 }
@@ -119,13 +131,14 @@ h1 {
 @media (max-width: 480px) {
     .container {
         height: 55vh;
+        max-width: 90%;
     }
     .circle {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
     }
     .Score {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding: 6px 12px;
     }
 }
