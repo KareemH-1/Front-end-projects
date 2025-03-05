@@ -13,8 +13,8 @@ h1{
     text-align: center;
     margin: 0px auto;
 }
-.container{
-    position: absolute;
+.container {
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -29,7 +29,17 @@ h1{
     text-align: center;
     width: 90%;
     height: 75%;
+    overflow: hidden;
 }
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.8s ease, top 0.8s ease;
+}
+
 .Score {
     position: absolute;
     bottom: 10px;
