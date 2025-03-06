@@ -5,19 +5,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const scoreElement = document.getElementById("score");
 
     let score = 0;
-    const width = gameArea.clientWidth || window.innerWidth;
-    const height = gameArea.clientHeight;
-    let basketPosition = width / 2 - basket.offsetWidth / 2;
+    let width = gameArea.clientWidth || window.innerWidth;
+    let height = gameArea.clientHeight || window.innerHeight;
 
-    console.log("Game area width:", width);
-    console.log("Basket width:", basket.offsetWidth);
+    function updateSizes() {
+        width = gameArea.clientWidth || window.innerWidth;
+        height = gameArea.clientHeight || window.innerHeight;
+
+        let basketWidth = width * 0.15;
+        let basketHeight = basketWidth * 0.5;
+        let ballSize = width * 0.05;
+
+        basket.style.width = basketWidth + "px";
+        basket.style.height = basketHeight + "px";
+        fallingObject.style.width = ballSize + "px";
+        fallingObject.style.height = ballSize + "px";
+
+        basketPosition = Math.max(0, Math.min(basketPosition, width - basketWidth));
+        basket.style.left = basketPosition + "px";
+    }
+
+    let basketPosition = width / 2 - basket.offsetWidth / 2;
+    updateSizes();
+
+    window.addEventListener("resize", updateSizes);
 
     document.addEventListener("keydown", function(event) {
-        const basketWidth = basket.offsetWidth;
-        if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a")) {
-            basketPosition -= 20;
-        } else if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d")) {
-            basketPosition += 20;
+        let basketWidth = basket.offsetWidth;
+        if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") {
+            basketPosition -= width * 0.02;
+        } else if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") {
+            basketPosition += width * 0.02;
         }
 
         basketPosition = Math.max(0, Math.min(basketPosition, width - basketWidth));
@@ -29,10 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
         fallingObject.style.left = randomLeft + "px";
         fallingObject.style.top = "0px";
 
+        let fallSpeed = Math.max(5, width * 0.005);
         let fallInterval = setInterval(function() {
             let currentTop = parseInt(fallingObject.style.top);
             if (currentTop < height - basket.offsetHeight - fallingObject.offsetHeight) {
-                fallingObject.style.top = (currentTop + 5) + "px";
+                fallingObject.style.top = (currentTop + fallSpeed) + "px";
             } else {
                 clearInterval(fallInterval);
                 checkCollision();
