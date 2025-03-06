@@ -45,6 +45,29 @@ document.addEventListener("DOMContentLoaded", function() {
         basket.style.left = basketPosition + "px";
     });
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener("touchstart", function(event) {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    document.addEventListener("touchmove", function(event) {
+        touchEndX = event.touches[0].clientX;
+        let difference = touchEndX - touchStartX;
+
+        if (Math.abs(difference) > 10) {
+            if (difference > 0) {
+                basketPosition += basketSpeed;
+            } else {
+                basketPosition -= basketSpeed;
+            }
+            basketPosition = Math.max(0, Math.min(basketPosition, width - basket.offsetWidth));
+            basket.style.left = basketPosition + "px";
+            touchStartX = touchEndX;
+        }
+    });
+
     function spawnFallingObjects(count) {
         let existingCount = fallingObjects.length;
         let newCount = Math.max(0, count - existingCount);
@@ -53,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let usedPositions = [];
 
-        function spawnWithDelay(i) {
+        for (let i = 0; i < newCount; i++) {
             setTimeout(() => {
                 let fallingObject = document.createElement("div");
                 fallingObject.classList.add("falling-object");
@@ -74,10 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 moveFallingObject(fallingObject);
             }, i * 500);
-        }
-
-        for (let i = 0; i < newCount; i++) {
-            spawnWithDelay(i);
         }
     }
 
