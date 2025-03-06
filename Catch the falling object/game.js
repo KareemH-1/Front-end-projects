@@ -11,19 +11,24 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateSizes() {
         width = gameArea.clientWidth || window.innerWidth;
         height = gameArea.clientHeight || window.innerHeight;
-
-        let basketWidth = width * 0.15;
-        let basketHeight = basketWidth * 0.5;
-        let ballSize = width * 0.05;
-
+    
+        let maxBasketWidth = 150; 
+        let maxBasketHeight = 75;
+        let maxBallSize = 50;
+    
+        let basketWidth = Math.min(width * 0.15, maxBasketWidth);
+        let basketHeight = Math.min(basketWidth * 0.5, maxBasketHeight);
+        let ballSize = Math.min(width * 0.05, maxBallSize);
+    
         basket.style.width = basketWidth + "px";
         basket.style.height = basketHeight + "px";
         fallingObject.style.width = ballSize + "px";
         fallingObject.style.height = ballSize + "px";
-
+    
         basketPosition = Math.max(0, Math.min(basketPosition, width - basketWidth));
         basket.style.left = basketPosition + "px";
     }
+    
 
     let basketPosition = width / 2 - basket.offsetWidth / 2;
     updateSizes();
