@@ -27,15 +27,15 @@ body {
     backdrop-filter: blur(10px);
     margin-top: 20px;
 }
-
 .game-area {
     position: relative;
-    width: 100%;
+    width: 100vw; 
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 50px;
+    overflow: hidden;
 }
 
 .falling-object {
@@ -52,8 +52,7 @@ body {
 .basket {
     position: absolute;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0px;
     width: 130px;
     height: 60px;
     background: linear-gradient(135deg, #ff9800, #f57c00);
@@ -64,6 +63,6 @@ body {
 }
 
 .basket:hover {
-    transform: translateX(-50%) scale(1.02);
+    transform: translateY(-50%) scale(1.02);
 }
 
