@@ -22,17 +22,18 @@ document.addEventListener("DOMContentLoaded", function() {
         score = Math.max(0, score + points);
         scoreElement.textContent = "Score: " + score;
     }
+    
     function resetBall() {
         ballX = gameAreaWidth / 2 - ballSize / 2;
         ballY = gameAreaHeight * 0.3;
         ballSpeedX = 0;
-        if (ballspeedY >= 7){
-            ballspeedY -=2;
+        if (ballSpeedY >= 7){
+            ballSpeedY -=2;
         }
-        else if(ballspeedY>=5){
-            ballspeedY -=1.5;
+        else if(ballSpeedY>=5){
+            ballSpeedY -=1.5;
         }
-        else if(ballspeedY>=4.5){
+        else if(ballSpeedY>=4.5){
             ballSpeedY -=1;
         }
         else if(ballSpeedY >= 3.6){
