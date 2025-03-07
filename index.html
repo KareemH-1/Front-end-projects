@@ -5,12 +5,32 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Front-End Projects</title>
+    
+<script>
+function filterProjects() {
+    var input = document.getElementById("search");
+    var filter = input.value.toLowerCase();
+    var projects = document.getElementsByTagName("li");
+    for (var i = 0; i < projects.length; i++) {
+        var title = projects[i].querySelector(".text").innerText.toLowerCase();
+        if (title.includes(filter)) {
+            projects[i].style.display = "";
+        } else {
+            projects[i].style.display = "none";
+        }
+    }
+}
+</script>
+
 </head>
 <body>
     <h1>My Front-End Projects</h1>
     <hr>
     <p><span class="typing-text">Select a project to view: </span></p>
-    <ul>
+    <div id="search-container">
+        <input type="text" id="search" placeholder="Search projects..." onkeyup="filterProjects()">
+    </div>
+      <ul>
         <li>
             <a href="Simple_Wiki/index.html" target="_blank">
                 <div class="text">
