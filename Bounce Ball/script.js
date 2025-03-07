@@ -17,29 +17,42 @@ document.addEventListener("DOMContentLoaded", function() {
     let ballSpeedX = 0;
     let ballSpeedY = 3;
 
+    
     function updateScore(points) {
         score = Math.max(0, score + points);
         scoreElement.textContent = "Score: " + score;
     }
-
     function resetBall() {
         ballX = gameAreaWidth / 2 - ballSize / 2;
         ballY = gameAreaHeight * 0.3;
         ballSpeedX = 0;
-        ballSpeedY = 3;
+        if (ballspeedY >= 7){
+            ballspeedY -=2;
+        }
+        else if(ballspeedY>=5){
+            ballspeedY -=1.5;
+        }
+        else if(ballspeedY>=4.5){
+            ballSpeedY -=1;
+        }
+        else if(ballSpeedY >= 3.6){
+            ballSpeedY -=0.5;
+        }
+        else {
+            ballSpeedY = 3;
+        }
     }
 
     function moveBall() {
         ballY += ballSpeedY;
         ballX += ballSpeedX;
 
-        // Top boundary
+
         if (ballY <= 0) {
             ballY = 0;
             ballSpeedY *= -1;
         }
 
-        // Ball collision with bar
         if (ballY + ballSize >= gameAreaHeight - barHeight - 10) {
             if (ballX + ballSize >= barPosition && ballX <= barPosition + barWidth) {
                 let hitPosition = (ballX + ballSize / 2 - barPosition) / barWidth - 0.5;
@@ -92,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             barPosition = Math.max(0, Math.min(barPosition, gameAreaWidth - barWidth));
             bar.style.left = barPosition + "px";
-            touchStartX = touchEndX;
+            touchStartX = touchEndX;d
         }
     });
 
