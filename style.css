@@ -97,9 +97,6 @@ img {
     transition: transform 0.3s ease;
 }
 
-img:hover {
-    transform: scale(1.03);
-}
 
 #ImgButton {
     background: #00df82;
@@ -206,6 +203,9 @@ li:hover span#note {
     box-shadow: 0 0 12px rgba(0, 223, 130, 0.6);
     border-color: #00df82;
 }
+#search:hover {
+    transform: scale(1.05) translateY(-5px);
+}
 
 #search::placeholder {
     color: rgba(0, 223, 130, 0.7);
@@ -213,4 +213,23 @@ li:hover span#note {
 
 #search:active {
     box-shadow: 0 0 12px rgba(0, 223, 130, 0.6);
+}
+
+.typing-text {
+    font-family: monospace;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 3s steps(40) infinite alternate, deleting 3s steps(40) infinite alternate 2s;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes deleting {
+    from { width: 100%; }
+    to { width: 0; }
 }
