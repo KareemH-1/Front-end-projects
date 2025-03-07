@@ -17,41 +17,57 @@ document.addEventListener("DOMContentLoaded", function() {
     let ballSpeedX = 0;
     let ballSpeedY = 3;
 
-    
     function updateScore(points) {
         score = Math.max(0, score + points);
         scoreElement.textContent = "Score: " + score;
     }
-    
+
+    function playCollisionAnimation() {
+        ball.style.transition = "transform 0.1s, background-color 0.1s";
+        ball.style.transform = "scale(1.3)";
+        ball.style.backgroundColor = "#FFD700";
+        setTimeout(function() {
+            ball.style.transform = "scale(1)";
+            ball.style.backgroundColor = "#A8180D";
+        }, 100);
+    }
+
     function resetBall() {
-        ballX = gameAreaWidth / 2 - ballSize / 2;
-        ballY = gameAreaHeight * 0.3;
-        ballSpeedX = 0;
-        if (ballSpeedY >= 7){
-            ballSpeedY -=2;
-        }
-        else if(ballSpeedY>=5){
-            ballSpeedY -=1.5;
-        }
-        else if(ballSpeedY>=4.5){
-            ballSpeedY -=1;
-        }
-        else if(ballSpeedY >= 3.6){
-            ballSpeedY -=0.5;
-        }
-        else {
-            ballSpeedY = 3;
-        }
+        ball.style.transition = "transform 0.5s, opacity 0.5s";
+        ball.style.transform = "scale(0)";
+        ball.style.opacity = "0";
+        setTimeout(function() {
+            ballX = gameAreaWidth / 2 - ballSize / 2;
+            ballY = gameAreaHeight * 0.3;
+            ballSpeedX = 0;
+            if (ballSpeedY >= 7){
+                ballSpeedY -=2;
+            }
+            else if(ballSpeedY>=5){
+                ballSpeedY -=1.5;
+            }
+            else if(ballSpeedY>=4.5){
+                ballSpeedY -=1;
+            }
+            else if(ballSpeedY >= 3.6){
+                ballSpeedY -=0.5;
+            }
+            else {
+                ballSpeedY = 3;
+            }
+            ball.style.transform = "scale(1)";
+            ball.style.opacity = "1";
+        }, 500);
     }
 
     function moveBall() {
         ballY += ballSpeedY;
         ballX += ballSpeedX;
 
-
         if (ballY <= 0) {
             ballY = 0;
             ballSpeedY *= -1;
+            playCollisionAnimation();
         }
 
         if (ballY + ballSize >= gameAreaHeight - barHeight - 10) {
@@ -60,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 ballSpeedX = hitPosition * 6;
                 ballSpeedY = -Math.abs(ballSpeedY);
                 updateScore(1);
+                playCollisionAnimation();
             } else if (ballY + ballSize >= gameAreaHeight) {
                 updateScore(-5);
                 resetBall();
@@ -68,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (ballX <= 0 || ballX + ballSize >= gameAreaWidth) {
             ballSpeedX *= -1;
+            playCollisionAnimation();
         }
 
         ball.style.left = ballX + "px";
@@ -106,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             barPosition = Math.max(0, Math.min(barPosition, gameAreaWidth - barWidth));
             bar.style.left = barPosition + "px";
-            touchStartX = touchEndX;d
+            touchStartX = touchEndX;
         }
     });
 
