@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const bar = document.getElementById("bar");
     const ball = document.getElementById("ball");
     const scoreElement = document.getElementById("Score");
+    const bounceSound = document.getElementById("bounceSound");
+    const resetSound = document.getElementById("resetSound");
+
 
     let score = 0;
     let barWidth = gameAreaWidth * 0.12;
@@ -33,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function resetBall() {
+        resetSound.play();
         ball.style.transition = "transform 0.5s, opacity 0.5s";
         ball.style.transform = "scale(0)";
         ball.style.opacity = "0";
@@ -68,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ballY = 0;
             ballSpeedY *= -1;
             playCollisionAnimation();
+            bounceSound.play();
         }
 
         if (ballY + ballSize >= gameAreaHeight - barHeight - 10) {
@@ -77,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 ballSpeedY = -Math.abs(ballSpeedY);
                 updateScore(1);
                 playCollisionAnimation();
+                bounceSound.play();
             } else if (ballY + ballSize >= gameAreaHeight) {
                 updateScore(-5);
                 resetBall();
@@ -86,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (ballX <= 0 || ballX + ballSize >= gameAreaWidth) {
             ballSpeedX *= -1;
             playCollisionAnimation();
+            bounceSound.play();
         }
 
         ball.style.left = ballX + "px";
