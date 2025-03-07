@@ -1,45 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-    background: linear-gradient(135deg, #1E1E2F, #111117);
+    background: linear-gradient(135deg, #0B0C10, #1F2833);
     margin: 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #Score {
-    color: #FFF;
-    background: rgba(255, 255, 255, 0.1);
+    color: #66FCF1;
+    background: rgba(102, 252, 241, 0.1);
     text-align: center;
     border-radius: 12px;
-    padding: 12px;
-    font-size: 24px;
-    font-weight: bold;
+    padding: 15px;
+    font-size: 20px;
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 160px;
-    backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 180px;
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(102, 252, 241, 0.5);
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.7);
 }
 
 #bar {
-    background: linear-gradient(90deg, #FFD700, #FF4500);
+    background: linear-gradient(90deg, #ff0066, #ff9900);
     position: absolute;
     bottom: 20px;
-    height: 12px;
+    height: 15px;
     width: 15vw;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px rgba(255, 0, 102, 0.9);
+    transition: transform 0.1s ease-in-out;
 }
 
 #ball {
-    background: radial-gradient(circle, #FF5733, #C70039);
+    background: radial-gradient(circle, #FFD700, #FF4500);
     position: absolute;
     width: 3vw;
     height: 3vw;
     border-radius: 50%;
-    box-shadow: 0px 0px 15px rgba(255, 87, 51, 0.8);
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.9);
+    transition: transform 0.1s, background-color 0.1s;
+    animation: glow 3s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8); }
+    50% { box-shadow: 0px 0px 20px rgba(255, 123, 0, 0.9); }
+    100% { box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8); }
 }
