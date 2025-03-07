@@ -1,0 +1,45 @@
+body{
+    background-color: #1A1A1A;
+}
+#Score{
+    color:#E8DDB3;
+    background-color: #558957;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px auto;
+    width: 150px;
+}
+
+hr{
+    width: 95%;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    opacity: 0.1;
+}
+
+#bar{
+    background-color: #E8DDB3;
+    width: 12vw;
+    height: 2vh;
+    margin: 10px auto;
+    border-radius: 10px;
+    display: flex;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+#ball{
+    background-color: #A8180D;
+    width: 2vw;
+    height: 2vw;
+    margin: 0px auto;
+    border-radius: 50%;
+    display: flex;
+    left:0;
+    right: 0;
+    position: absolute;
+}
