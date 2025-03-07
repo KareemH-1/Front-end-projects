@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-    background: linear-gradient(135deg, #0B0C10, #1F2833);
+    background: url('Images/Background_Image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #0B0C10;
     margin: 0;
     overflow: hidden;
     display: flex;
@@ -10,6 +12,7 @@ body {
     height: 100vh;
     font-family: 'Press Start 2P', cursive;
 }
+
 
 #Score {
     color: #66FCF1;
