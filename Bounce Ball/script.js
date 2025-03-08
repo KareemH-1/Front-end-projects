@@ -85,19 +85,20 @@ document.addEventListener("DOMContentLoaded", function() {
     function activatePowerUp() {
         if (!powerUpActive) {
             powerUpActive = true;
-            const originalWidth = bar.offsetWidth;
+            const originalWidth = barWidth;
+            barWidth = originalWidth * 2.5;
             bar.style.transition = "width 0.5s ease-in-out";
-            bar.style.width = originalWidth * 2.5 + "px";
+            bar.style.width = barWidth + "px";
             sizePowerUp.style.display = "none";
             setTimeout(() => {
-                bar.style.width = originalWidth + "px";
+                barWidth = originalWidth;
+                bar.style.width = barWidth + "px";
                 setTimeout(() => {
                     powerUpActive = false;
                 }, 500);
             }, 7000);
         }
     }
-    
 
     function spawnPowerUp() {
         if (score >= 5 && Math.random() < 0.1) {
