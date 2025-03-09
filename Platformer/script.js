@@ -1,9 +1,16 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-let scoreP = document.getElementById("score");
+
+canvas.width = 600;
+canvas.height = 400;
 
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
+
+let scoreP = document.getElementById("score");
+let popup = document.getElementById("popup");
+let finalScore = document.getElementById("finalScore");
+let restartBtn = document.getElementById("restartBtn");
 
 let player = {
     x: 50,
@@ -54,10 +61,8 @@ function draw() {
 
 function movePlayer() {
     if (!gameRunning) return;
-
     player.y += player.velocityY;
     player.velocityY += player.gravity;
-
     if (player.y >= canvasHeight - player.height - 10) {
         player.y = canvasHeight - player.height - 10;
         player.jumping = false;
@@ -77,13 +82,16 @@ function generatePlatforms() {
     let platformWidth = 50;
     let platformX = canvasWidth;
     let platformY = canvasHeight - platformHeight - 10;
-
     platforms.push({ x: platformX, y: platformY, width: platformWidth, height: platformHeight });
+    setTimeout(generatePlatforms, Math.random() * 5000 + 2000);
 }
+
+window.onload = function () {
+    generatePlatforms();
+};
 
 function movePlatforms() {
     if (!gameRunning) return;
-
     for (let i = platforms.length - 1; i >= 0; i--) {
         platforms[i].x -= 3;
         if (platforms[i].x + platforms[i].width < 0) {
@@ -95,7 +103,6 @@ function movePlatforms() {
 function checkCollisions() {
     for (let i = 0; i < platforms.length; i++) {
         let platform = platforms[i];
-
         if (
             player.x + player.width > platform.x &&
             player.x < platform.x + platform.width &&
@@ -109,20 +116,24 @@ function checkCollisions() {
 
 function resetGame() {
     gameRunning = false;
-    alert("Game Over! Score: " + player.score);
+    popup.style.display = "block";
+    finalScore.innerText = player.score;
+}
+
+restartBtn.addEventListener("click", function () {
+    popup.style.display = "none";
     player.score = 0;
     player.y = canvasHeight - player.height - 10;
     player.velocityY = 0;
     platforms = [];
     gameRunning = true;
-    draw();
-}
+    requestAnimationFrame(draw);
+});
 
 setInterval(() => {
-    if (gameRunning) player.score += 1;
-}, 150);
+    if (gameRunning) player.score += 2;
+}, 100);
 
-setInterval(generatePlatforms, 1500);
 setInterval(movePlatforms, 20);
 setInterval(movePlayer, 20);
 setInterval(checkCollisions, 20);
