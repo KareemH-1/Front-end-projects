@@ -70,12 +70,21 @@ function movePlayer() {
     }
 }
 
-window.addEventListener("keydown", function (event) {
-    if ((event.key === "ArrowUp" || event.key.toLowerCase() === "w" || event.key.toLowerCase() === " ") && !player.jumping) {
+function jump() {
+    if (!player.jumping) {
         player.jumping = true;
         player.velocityY = player.jumpPower;
     }
+}
+
+window.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowUp" || event.key.toLowerCase() === "w" || event.key.toLowerCase() === " ") {
+        jump();
+    }
 });
+
+canvas.addEventListener("touchstart", jump);
+canvas.addEventListener("mousedown", jump);
 
 function generatePlatforms() {
     let platformHeight = 10;
