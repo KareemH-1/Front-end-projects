@@ -11,37 +11,41 @@ let scoreP = document.getElementById("score");
 let popup = document.getElementById("popup");
 let finalScore = document.getElementById("finalScore");
 let restartBtn = document.getElementById("restartBtn");
+let jumpBtn = document.getElementById("jumpBtn");
+let crouchBtn = document.getElementById("crouchBtn");
 
 let player = {
     x: 50,
-    y: canvasHeight - 20 - 10,
+    y: canvasHeight - 30,
     width: 10,
-    height: 10,
+    height: 20,
     speed: 5,
     jumping: false,
+    crouching: false,
     velocityY: 0,
     gravity: 0.3,
     jumpPower: -6.5,
     score: 0
 };
 
-let platforms = [];
+let enemies = [];
 let gameRunning = true;
+let spawnRate = 4000;
 
 function drawPlayer() {
     ctx.fillStyle = "#03DAC6";
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
-function drawPlatforms() {
-    ctx.fillStyle = "#BB86FC";
-    platforms.forEach(platform => {
-        ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+function drawEnemies() {
+    ctx.fillStyle = "#FF0266";
+    enemies.forEach(enemy => {
+        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
     });
 }
 
 function drawGround() {
-    ctx.fillStyle = "#3700B3"; 
+    ctx.fillStyle = "#3700B3";
     ctx.fillRect(0, canvasHeight - 10, canvasWidth, 10);
 }
 
@@ -52,7 +56,7 @@ function drawScore() {
 function draw() {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     drawPlayer();
-    drawPlatforms();
+    drawEnemies();
     drawScore();
     drawGround();
     if (gameRunning) requestAnimationFrame(draw);
@@ -65,57 +69,97 @@ function movePlayer() {
     if (player.y >= canvasHeight - player.height - 10) {
         player.y = canvasHeight - player.height - 10;
         player.jumping = false;
-        player.velocityY = 0;
     }
 }
 
 function jump() {
-    if (!player.jumping) {
+    if (!player.jumping && !player.crouching) {
         player.jumping = true;
         player.velocityY = player.jumpPower;
     }
+}
+
+function crouch() {
+    if (!player.jumping) {
+        player.crouching = true;
+        player.height = 10;
+    }
+}
+
+function standUp() {
+    player.crouching = false;
+    player.height = 20;
 }
 
 window.addEventListener("keydown", function (event) {
     if (event.key === "ArrowUp" || event.key.toLowerCase() === "w" || event.key.toLowerCase() === " ") {
         jump();
     }
+    if (event.key === "ArrowDown" || event.key.toLowerCase() === "s") {
+        crouch();
+    }
 });
 
-canvas.addEventListener("touchstart", jump);
-canvas.addEventListener("mousedown", jump);
+window.addEventListener("keyup", function (event) {
+    if (event.key === "ArrowDown" || event.key.toLowerCase() === "s") {
+        standUp();
+    }
+});
 
-function generatePlatforms() {
-    let platformHeight = 10;
-    let platformWidth = 50;
-    let platformX = canvasWidth;
-    let platformY = canvasHeight - platformHeight - 10;
-    platforms.push({ x: platformX, y: platformY, width: platformWidth, height: platformHeight });
-    setTimeout(generatePlatforms, Math.random() * 5000 + 2000);
+jumpBtn.addEventListener("click", jump);
+jumpBtn.addEventListener("touchstart", jump);
+
+crouchBtn.addEventListener("mousedown", crouch);
+crouchBtn.addEventListener("mouseup", standUp);
+crouchBtn.addEventListener("mouseleave", standUp);
+
+crouchBtn.addEventListener("touchstart", function (event) {
+    event.preventDefault(); 
+    crouch();
+});
+
+crouchBtn.addEventListener("touchend", function (event) {
+    event.preventDefault(); 
+    standUp();
+});
+
+function generateEnemies() {
+    let enemyTypes = [
+        { width: 10, height: 30 },
+        { width: 40, height: 10 }, 
+        { width: 15, height: 25, flying: true }
+    ];
+    let type = enemyTypes[Math.floor(Math.random() * enemyTypes.length)];
+    let enemyY = type.flying ? canvasHeight - 60 : canvasHeight - type.height - 10;
+    enemies.push({ x: canvasWidth, y: enemyY, width: type.width, height: type.height, flying: type.flying });
+    
+    spawnRate = Math.max(1000, spawnRate * 0.95);
+    setTimeout(generateEnemies, Math.random() * spawnRate + 1000);
 }
 
-window.onload = function () {
-    generatePlatforms();
-};
+generateEnemies();
 
-function movePlatforms() {
+function moveEnemies() {
     if (!gameRunning) return;
-    for (let i = platforms.length - 1; i >= 0; i--) {
-        platforms[i].x -= 3;
-        if (platforms[i].x + platforms[i].width < 0) {
-            platforms.splice(i, 1);
+    for (let i = enemies.length - 1; i >= 0; i--) {
+        enemies[i].x -= 3;
+        if (enemies[i].flying) {
+            enemies[i].y += Math.sin(Date.now() / 300) * 1.5;
+        }
+        if (enemies[i].x + enemies[i].width < 0) {
+            enemies.splice(i, 1);
         }
     }
 }
 
 function checkCollisions() {
-    for (let i = 0; i < platforms.length; i++) {
-        let platform = platforms[i];
+    for (let i = 0; i < enemies.length; i++) {
+        let enemy = enemies[i];
         if (
-            player.x + player.width > platform.x &&
-            player.x < platform.x + platform.width &&
-            player.y + player.height > platform.y &&
-            player.y < platform.y + platform.height
+            player.x + player.width > enemy.x &&
+            player.x < enemy.x + enemy.width &&
+            player.y + player.height > enemy.y &&
+            player.y < enemy.y + enemy.height
         ) {
             resetGame();
         }
@@ -133,16 +177,21 @@ restartBtn.addEventListener("click", function () {
     player.score = 0;
     player.y = canvasHeight - player.height - 10;
     player.velocityY = 0;
-    platforms = [];
+    enemies = [];
+    spawnRate = 4000;
     gameRunning = true;
     requestAnimationFrame(draw);
 });
 
 setInterval(() => {
-    if (gameRunning) player.score += 2;
+    if (gameRunning) {
+        player.score += 2;
+        player.jumpPower = Math.max(-10, -6.5 - player.score * 0.005); // Limit jump power
+    }
 }, 100);
 
-setInterval(movePlatforms, 20);
+
+setInterval(moveEnemies, 20);
 setInterval(movePlayer, 20);
 setInterval(checkCollisions, 20);
 
