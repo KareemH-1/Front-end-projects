@@ -21,7 +21,7 @@ let player = {
     jumping: false,
     velocityY: 0,
     gravity: 0.3,
-    jumpPower: -6,
+    jumpPower: -6.5,
     score: 0
 };
 
@@ -29,25 +29,24 @@ let platforms = [];
 let gameRunning = true;
 
 function drawPlayer() {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "#03DAC6";
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
 function drawPlatforms() {
-    for (let i = 0; i < platforms.length; i++) {
-        let platform = platforms[i];
-        ctx.fillStyle = "red";
+    ctx.fillStyle = "#BB86FC";
+    platforms.forEach(platform => {
         ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
-    }
+    });
+}
+
+function drawGround() {
+    ctx.fillStyle = "#3700B3"; 
+    ctx.fillRect(0, canvasHeight - 10, canvasWidth, 10);
 }
 
 function drawScore() {
     scoreP.innerText = "Score: " + player.score;
-}
-
-function drawGround() {
-    ctx.fillStyle = "green";
-    ctx.fillRect(0, canvasHeight - 10, canvasWidth, 10);
 }
 
 function draw() {
