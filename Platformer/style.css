@@ -99,6 +99,10 @@ button:hover {
         width: 85%;
         max-width: 240px;
     }
+    .control-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -112,4 +116,39 @@ button:hover {
         width: 80%;
         max-width: 220px;
     }
+    .control-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
 }
+
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    background: #03DAC6;
+    color: #121212;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 4px 10px rgba(3, 218, 198, 0.4);
+}
+
+.control-btn:hover {
+    background: #018786;
+    box-shadow: 0px 2px 5px rgba(3, 218, 198, 0.7);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+
