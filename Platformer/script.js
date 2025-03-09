@@ -2,7 +2,7 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
 canvas.width = 600;
-canvas.height = 400;
+canvas.height = window.innerHeight * 0.8;
 
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
