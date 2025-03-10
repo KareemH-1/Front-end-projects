@@ -13,6 +13,9 @@ let finalScore = document.getElementById("finalScore");
 let restartBtn = document.getElementById("restartBtn");
 let jumpBtn = document.getElementById("jumpBtn");
 let crouchBtn = document.getElementById("crouchBtn");
+const passSound = document.getElementById("PassEnemy");
+const resetSound = document.getElementById("resetSound");
+const scoreSound = document.getElementById("scoreSound");
 
 let player = {
     x: 50,
@@ -23,8 +26,8 @@ let player = {
     jumping: false,
     crouching: false,
     velocityY: 0,
-    gravity: 0.5,
-    jumpPower: -4.7,
+    gravity: 0.425,
+    jumpPower: -4.9,
     score: 0
 };
 
@@ -50,6 +53,9 @@ function drawGround() {
 }
 
 function drawScore() {
+    if(player.score % 100 === 0 && player.score != 0){
+        scoreSound.play();
+    }
     scoreP.innerText = "Score: " + player.score;
 }
 
@@ -142,6 +148,11 @@ generateEnemies();
 function moveEnemies() {
     if (!gameRunning) return;
     for (let i = enemies.length - 1; i >= 0; i--) {
+        if (enemies[i].x + enemies[i].width < player.x && !enemies[i].passed) {
+            passSound.play();
+            enemies[i].passed = true;
+        }
+        
         enemies[i].x -= 3;
         if (enemies[i].flying) {
             enemies[i].y += Math.sin(Date.now() / 300) * 1.5;
@@ -166,7 +177,12 @@ function checkCollisions() {
     }
 }
 
+let CtgoodSound = 0;
 function resetGame() {
+    if(CtgoodSound == 0){
+        resetSound.play();
+        CtgoodSound = 1;
+    }
     gameRunning = false;
     popup.style.display = "block";
     finalScore.innerText = player.score;
@@ -180,6 +196,7 @@ restartBtn.addEventListener("click", function () {
     enemies = [];
     spawnRate = 4000;
     gameRunning = true;
+    CtgoodSound =0;
     requestAnimationFrame(draw);
 });
 
@@ -194,5 +211,5 @@ setInterval(() => {
 setInterval(moveEnemies, 20);
 setInterval(movePlayer, 20);
 setInterval(checkCollisions, 20);
-
+ 
 draw();
