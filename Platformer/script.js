@@ -23,8 +23,8 @@ let player = {
     jumping: false,
     crouching: false,
     velocityY: 0,
-    gravity: 0.3,
-    jumpPower: -6.5,
+    gravity: 0.5,
+    jumpPower: -4.5,
     score: 0
 };
 
