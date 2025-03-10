@@ -24,7 +24,7 @@ let player = {
     crouching: false,
     velocityY: 0,
     gravity: 0.5,
-    jumpPower: -4.5,
+    jumpPower: -4.7,
     score: 0
 };
 
@@ -188,7 +188,7 @@ setInterval(() => {
         player.score += 2;
         player.jumpPower = Math.max(-10, -6.5 - player.score * 0.005); // Limit jump power
     }
-}, 100);
+}, 200);
 
 
 setInterval(moveEnemies, 20);
