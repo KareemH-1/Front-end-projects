@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let ballX = gameAreaWidth / 2 - ballSize / 2;
     let ballY = gameAreaHeight * 0.5;
     let ballSpeedX = 0;
-    let ballSpeedY = 3;
+    let ballSpeedY = 3.5;
     let powerUpActive = false;
 
     sizePowerUp.style.display = "none";
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     powerUpActive = false;
                 }, 500);
-            }, 7000);
+            }, 7500);
         }
     }
 
