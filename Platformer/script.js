@@ -52,9 +52,16 @@ function drawGround() {
     ctx.fillRect(0, canvasHeight - 10, canvasWidth, 10);
 }
 
+let maxScore = localStorage.getItem("maxScore") || 0;
+
 function drawScore() {
-    if(player.score % 100 === 0 && player.score != 0){
+    if (player.score % 100 === 0 && player.score != 0) {
         scoreSound.play();
+    }
+
+    if (player.score > maxScore) {
+        maxScore = player.score;
+        localStorage.setItem("maxScore", maxScore);
     }
     scoreP.innerText = "Score: " + player.score;
 }
@@ -185,7 +192,7 @@ function resetGame() {
     }
     gameRunning = false;
     popup.style.display = "block";
-    finalScore.innerText = player.score;
+    finalScore.innerText = player.score + "\nHighScore: " + maxScore;;
 }
 
 restartBtn.addEventListener("click", function () {
