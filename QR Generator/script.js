@@ -1,6 +1,7 @@
 const frame = document.getElementById("qr-code");
+let currentSize = 128;
 
-function generateQRCode(size = 128) {
+function generateQRCode(size = currentSize) {
     const input = document.getElementById("input").value.trim();
 
     if (!input) {
@@ -22,21 +23,19 @@ function generateQRCode(size = 128) {
 
 document.getElementById("Sizes").addEventListener("click", function(event) {
     if (event.target.tagName === "BUTTON") {
-        let size;
         switch (event.target.textContent.toLowerCase()) {
             case "small":
-                size = 100;
+                currentSize = 100;
                 break;
             case "medium":
-                size = 150;
+                currentSize = 150;
                 break;
             case "large":
-                size = 200;
+                currentSize = 200;
                 break;
-            default:
-                size = 128;
         }
-        generateQRCode(size);
+        generateQRCode(currentSize);
+        changeColor(event.target);
     }
 });
 
@@ -49,3 +48,11 @@ document.getElementById("input").addEventListener("keypress", function(event) {
 document.getElementById("input").addEventListener("input", function() {
     generateQRCode();
 });
+
+function changeColor(activeButton) {
+    document.querySelectorAll("#Sizes button").forEach(button => {
+        button.style.backgroundColor = "#4A90E2";
+    });
+    activeButton.style.backgroundColor = "#357ABD";
+    activeButton.style.border="2px solid rgb(0, 157, 255)";
+}
