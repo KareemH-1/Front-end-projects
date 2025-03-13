@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
+let ctTasks = 0;
 function addTask() {
     let input = document.getElementById("taskInput");
     let task = input.value.trim();
@@ -16,13 +16,15 @@ function addTask() {
 
     let li = document.createElement("li");
     li.textContent = task;
-
+    ctTasks++;
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "❌";
     deleteBtn.className = "delete-btn";
     deleteBtn.onclick = function () {
         li.remove();
+        ctTasks--;
         saveTasks();
+        displayRemoveAllButton();
     };
 
     li.appendChild(deleteBtn);
@@ -30,6 +32,7 @@ function addTask() {
     input.value = "";
 
     saveTasks();
+    displayRemoveAllButton();
 }
 
 function saveTasks() {
@@ -68,5 +71,16 @@ function removeAll(){
     deleteAllBtn.onclick = function () {
         document.getElementById("taskList").innerHTML = "";
         localStorage.removeItem("tasks");
+        ctTasks = 0;
+        displayRemoveAllButton();
     };
+    
+}
+
+function displayRemoveAllButton() {
+    if (ctTasks >= 2) {
+        document.getElementById("removeAll").style.display = "block";
+    } else {
+        document.getElementById("removeAll").style.display = "none";
+    }
 }
