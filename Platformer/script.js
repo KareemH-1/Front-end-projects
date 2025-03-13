@@ -26,8 +26,8 @@ let player = {
     jumping: false,
     crouching: false,
     velocityY: 0,
-    gravity: 0.425,
-    jumpPower: -4.9,
+    gravity: 0.4,
+    jumpPower: -6.5,
     score: 0
 };
 
