@@ -6,10 +6,9 @@ function analyzeText() {
     const wordCount = words.length;
     const letterCount = text.replace(/[^a-zA-Z]/g, "").length;
     const lineCount = text.split("\n").length;
-    const sentenceCount = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length;
-    if(wordCount === 0) result.textContent = "No text entered";
+   if(wordCount === 0) result.textContent = "No text entered";
     else{
     result.textContent = `The text you entered contains: 
-    Words: ${wordCount} , Letters: ${letterCount} , Lines: ${lineCount} and Sentences: ${sentenceCount}`;
+    Words: ${wordCount} , Letters: ${letterCount} and Lines: ${lineCount}`;
     }
 }
