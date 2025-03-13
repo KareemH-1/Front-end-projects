@@ -15,6 +15,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 350px;
+    border: 1px solid #0F3460;
 }
 
 h1 {
@@ -33,6 +34,62 @@ textarea {
     resize: none;
     background-color: #1A1A2E;
     color: #E5E5E5;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #E94560;
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #1A1A2E;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #E94560;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #D32F2F;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #0F3460;
+    border-radius: 4px;
+    background-color: #1A1A2E;
+    cursor: pointer;
+    margin-right: 8px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #E94560;
+    border-color: #E94560;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #E5E5E5;
+    font-size: 12px;
+}
+
+label {
+    color: #E5E5E5;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 button {
@@ -46,6 +103,7 @@ button {
     font-size: 16px;
     width: 100%;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -53,8 +111,12 @@ button:hover {
 }
 
 #result {
-    white-space: pre-line; 
+    white-space: pre-line;
     font-weight: bold;
     margin-top: 15px;
     color: #E5E5E5;
+    padding: 10px;
+    border: 1px solid #0F3460;
+    border-radius: 8px;
+    background-color: #1A1A2E;
 }
