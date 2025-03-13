@@ -53,7 +53,8 @@ button:hover {
 }
 
 #result {
-    margin-top: 12px;
+    white-space: pre-line; 
     font-weight: bold;
+    margin-top: 15px;
     color: #E5E5E5;
 }
