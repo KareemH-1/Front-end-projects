@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 let ctTasks = 0;
+
 function addTask() {
     let input = document.getElementById("taskInput");
     let task = input.value.trim();
@@ -17,6 +19,7 @@ function addTask() {
     let li = document.createElement("li");
     li.textContent = task;
     ctTasks++;
+
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "❌";
     deleteBtn.className = "delete-btn";
@@ -47,6 +50,8 @@ function loadTasks() {
     document.getElementById("taskList").innerHTML = "";
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    ctTasks = tasks.length;
+
     tasks.forEach(function(task) {
         let li = document.createElement("li");
 
@@ -58,15 +63,19 @@ function loadTasks() {
         deleteBtn.className = "delete-btn";
         deleteBtn.onclick = function () {
             li.remove();
+            ctTasks--;
             saveTasks();
+            displayRemoveAllButton();
         };
 
         li.appendChild(deleteBtn);
         document.getElementById("taskList").appendChild(li);
     });
+
+    displayRemoveAllButton();
 }
 
-function removeAll(){
+function removeAll() {
     let deleteAllBtn = document.getElementById("removeAll");
     deleteAllBtn.onclick = function () {
         document.getElementById("taskList").innerHTML = "";
@@ -74,11 +83,11 @@ function removeAll(){
         ctTasks = 0;
         displayRemoveAllButton();
     };
-    
 }
 
 function displayRemoveAllButton() {
-    if (ctTasks >= 2) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    if (tasks.length >= 2 || ctTasks >= 2) {
         document.getElementById("removeAll").style.display = "block";
     } else {
         document.getElementById("removeAll").style.display = "none";
