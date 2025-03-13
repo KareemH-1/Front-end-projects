@@ -1,4 +1,12 @@
-document.addEventListener("DOMContentLoaded", loadTasks);
+document.addEventListener("DOMContentLoaded", function () {
+    loadTasks();
+
+    document.getElementById("taskInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            addTask();
+        }
+    });
+});
 
 function addTask() {
     let input = document.getElementById("taskInput");
@@ -33,10 +41,14 @@ function saveTasks() {
 }
 
 function loadTasks() {
+    document.getElementById("taskList").innerHTML = "";
+
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.forEach(function(task) {
         let li = document.createElement("li");
-        li.textContent = task;
+
+        let taskText = document.createTextNode(task);
+        li.appendChild(taskText);
 
         let deleteBtn = document.createElement("button");
         deleteBtn.textContent = "❌";
