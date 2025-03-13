@@ -35,6 +35,9 @@ button {
 button:hover {
     background: #0056b3;
 }
+button:active{
+    transform: scale(0.95);
+}
 
 ul {
     list-style: none;
@@ -70,5 +73,17 @@ li:hover {
 }
 
 .delete-btn:hover {
+    background: darkred;
+}
+#removeAll {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #bd102a;;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#removeAll:hover {
     background: darkred;
 }

@@ -62,3 +62,11 @@ function loadTasks() {
         document.getElementById("taskList").appendChild(li);
     });
 }
+
+function removeAll(){
+    let deleteAllBtn = document.getElementById("removeAll");
+    deleteAllBtn.onclick = function () {
+        document.getElementById("taskList").innerHTML = "";
+        localStorage.removeItem("tasks");
+    };
+}
