@@ -87,3 +87,18 @@ li:hover {
 #removeAll:hover {
     background: darkred;
 }
+::-webkit-scrollbar {
+    width: 8px;
+  }
+::-webkit-scrollbar-track {
+    background: #555555;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+    border-radius: 4px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color:#ffffff;
+}
