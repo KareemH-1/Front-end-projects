@@ -159,3 +159,12 @@ function setDefaultDate() {
     document.getElementById("income-date").value = today;
     document.getElementById("expense-date").value = today;
 }
+
+document.getElementById("export-btn").addEventListener("click", function () {
+    var transactions = getTransactions();
+    var wb = XLSX.utils.book_new();
+    var ws = XLSX.utils.json_to_sheet(transactions);
+
+    XLSX.utils.book_append_sheet(wb, ws, "Transactions");
+    XLSX.writeFile(wb, "transactions.xlsx");
+});
