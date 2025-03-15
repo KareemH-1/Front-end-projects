@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chart.html">Chart</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <h1>Expense Tracker</h1>
 
@@ -41,38 +48,37 @@
         <div class="transactions">
             <h2 id="transactions-title">Transactions</h2>
 
+            <table>
+                <h2>Incomes</h2>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="income-list"></tbody>
+            </table>
+            
+            <table>
+                <h2>Expenses</h2>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-list"></tbody>
+            </table>
+            <button id="export-btn">Export to Excel</button>
+        </div>
+    </div>
 
-        <table>
-            <h2>Incomes</h2>
-            <thead>
-                <tr>
-                    <th>Source</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="income-list"></tbody>
-        </table>
-        
-        <table>
-            <h2>Expenses</h2>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="expense-list"></tbody>
-        </table>
-        <button id="export-btn">Export to excel</button>
-    </div>
-    </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
