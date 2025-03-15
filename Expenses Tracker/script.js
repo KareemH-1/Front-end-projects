@@ -25,7 +25,6 @@ function getTransactions() {
 function saveTransactions(transactions) {
     localStorage.setItem("transactions", JSON.stringify(transactions));
 }
-
 function addTransaction(type) {
     var nameInput = document.getElementById(type + "-name");
     var amountInput = document.getElementById(type + "-amount");
@@ -41,18 +40,16 @@ function addTransaction(type) {
     var name = nameInput.value.trim();
     var amount = parseFloat(amountInput.value);
     var date = dateInput.value;
-    var description = "";
-    var category = "";
+    var description = descriptionInput ? descriptionInput.value.trim() : "";
+    var category = categoryInput ? categoryInput.value : "";
 
-    if (descriptionInput) {
-        description = descriptionInput.value.trim();
-    }
-    if (categoryInput) {
-        category = categoryInput.value;
-    }
-
-    if (name === "" || isNaN(amount) || amount <= 0) {
+    if (name === "" || isNaN(amount)) {
         alert("Please enter valid details.");
+        return;
+    }
+
+    if (amount <= 0) {
+        alert("Amount must be greater than 0.");
         return;
     }
 
@@ -71,38 +68,35 @@ function addTransaction(type) {
 
     addTransactionToTable(transaction);
     updateBalance();
+
     nameInput.value = "";
     amountInput.value = "";
-    if (descriptionInput) descriptionInput.value = "";
+    if (type === "expense" && descriptionInput) {
+        descriptionInput.value = "";
+    }
     setDefaultDate();
 }
 
 function addTransactionToTable(transaction) {
-    var tableId = "income-list";
-    if (transaction.type === "expense") {
-        tableId = "expense-list";
-    }
+    var tableId = transaction.type === "expense" ? "expense-list" : "income-list";
     var table = document.getElementById(tableId);
     var row = table.insertRow(0);
 
     row.insertCell(0).innerText = transaction.name;
     row.insertCell(1).innerText = "$" + transaction.amount.toFixed(2);
-    
+
     if (transaction.type === "expense") {
-        row.insertCell(2).innerText = transaction.description || "-";
+        row.insertCell(2).innerText = transaction.description;
         row.insertCell(3).innerText = transaction.category;
     }
-    
-    var dateCellIndex = 2;
-    if (transaction.type === "expense") {
-        dateCellIndex = 4;
-    }
+
+    var dateCellIndex = transaction.type === "expense" ? 4 : 2;
     row.insertCell(dateCellIndex).innerText = transaction.date;
 
-    var deleteCellIndex = dateCellIndex + 1;
-    var deleteCell = row.insertCell(deleteCellIndex);
+    var deleteCell = row.insertCell(dateCellIndex + 1);
     var deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Delete";
+    deleteBtn.className = "delete-btn";
     deleteBtn.onclick = function () {
         deleteTransaction(transaction, row);
     };
@@ -113,6 +107,7 @@ function loadTransactions() {
     var transactions = getTransactions();
     document.getElementById("income-list").innerHTML = "";
     document.getElementById("expense-list").innerHTML = "";
+
     for (var i = 0; i < transactions.length; i++) {
         addTransactionToTable(transactions[i]);
     }
@@ -121,30 +116,46 @@ function loadTransactions() {
 function updateBalance() {
     var transactions = getTransactions();
     var balance = 0;
+
     for (var i = 0; i < transactions.length; i++) {
-        if (transactions[i].type === "income") {
-            balance += transactions[i].amount;
-        } else {
-            balance -= transactions[i].amount;
-        }
+        var transaction = transactions[i];
+        balance += transaction.type === "income" ? transaction.amount : -transaction.amount;
     }
-    document.getElementById("current-balance").innerText = balance.toFixed(2);
+
+    var balanceElement = document.getElementById("current-balance");
+    balanceElement.innerHTML = `<span id="balance-sign">$</span> ${balance.toFixed(2)}`;
+
+    var balanceSign = document.getElementById("balance-sign");
+
+    if (balance < 0) {
+        balanceElement.style.color = "red";
+        balanceSign.style.color = "red";
+        balanceElement.innerHTML += ' <small>(in debt)</small>';
+    } else if (balance > 0) {
+        balanceElement.style.color = "green";
+        balanceSign.style.color = "green";
+    } else {
+        balanceElement.style.color = "";
+        balanceSign.style.color = "";
+    }
 }
 
 function deleteTransaction(transaction, row) {
     var transactions = getTransactions();
-    var filteredTransactions = [];
-    for (var i = 0; i < transactions.length; i++) {
-        if (transactions[i] !== transaction) {
-            filteredTransactions.push(transactions[i]);
-        }
-    }
+    var filteredTransactions = transactions.filter(t => 
+        !(t.name === transaction.name &&
+          t.amount === transaction.amount &&
+          t.date === transaction.date &&
+          t.type === transaction.type)
+    );
+
     saveTransactions(filteredTransactions);
     row.remove();
     updateBalance();
 }
 
 function setDefaultDate() {
-    document.getElementById("income-date").value = new Date().toISOString().split("T")[0];
-    document.getElementById("expense-date").value = new Date().toISOString().split("T")[0];
+    var today = new Date().toISOString().split("T")[0];
+    document.getElementById("income-date").value = today;
+    document.getElementById("expense-date").value = today;
 }

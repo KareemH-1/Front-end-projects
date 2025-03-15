@@ -11,7 +11,7 @@
         <h1>Expense Tracker</h1>
 
         <div class="balance-container">
-            <span>Current Balance: $<span id="current-balance">0</span></span>
+            <span>Current Balance: <span id="current-balance">0</span></span>
         </div>
 
         <form id="income-form">
@@ -26,7 +26,7 @@
             <h2>Add Expense</h2>
             <input type="text" id="expense-name" placeholder="Expense Name" required>
             <input type="number" id="expense-amount" placeholder="Amount" required>
-            <input type="text" id="expense-description" placeholder="Description" required>
+            <input type="text" id="expense-description" placeholder="Description (Optional)">
             <select id="expense-category">
                 <option value="Food">Food</option>
                 <option value="Transport">Transport</option>
@@ -38,9 +38,8 @@
         </form>
 
         <div class="transactions">
-            <h2>Transactions</h2>
-            <ul id="transaction-list" class="transaction-list"></ul>
-        </div>
+            <h2 id="transactions-title">Transactions</h2>
+
 
         <table>
             <h2>Incomes</h2>
@@ -69,6 +68,7 @@
             </thead>
             <tbody id="expense-list"></tbody>
         </table>
+    </div>
     </div>
     
     <script src="script.js"></script>

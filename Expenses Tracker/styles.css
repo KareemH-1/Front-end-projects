@@ -46,19 +46,11 @@ h1, h2 {
     background: #f9f9f9;
     padding: 15px;
     border-radius: 8px;
-    margin-top: 20px;
 }
 
-.transaction-list {
-    list-style: none;
-    padding: 0;
-}
-
-.transaction-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.transactions #transactions-title {
+    text-decoration: underline;
+    margin-bottom: 40px;
 }
 
 form {
@@ -99,6 +91,14 @@ button:hover {
     transform: scale(1.05);
 }
 
+button.delete-btn {
+    background-color: #dc3545;
+}
+
+button.delete-btn:hover {
+    background-color: #f4152b;
+}
+
 th, td {
     border: 1px solid #ddd;
     padding: 12px;
@@ -122,14 +122,57 @@ table {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
     form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        flex-direction: column;
     }
 
-    form button {
-        grid-column: span 2;
+    form input, form select, form button {
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    th {
+        font-size: 16px;
+    }
+
+    .balance-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .transactions h2 {
+        font-size: 1.2em;
+    }
+
+    td, th {
+        min-width: 100px;
+    }
+
+    table::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    table::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 5px;
+    }
+
+    table::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+
+    table::-webkit-scrollbar-track {
+        background: #f1f1f1;
     }
 }
