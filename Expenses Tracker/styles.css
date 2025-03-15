@@ -7,6 +7,12 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #f4f4f4;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
@@ -71,6 +77,10 @@ input, select, button {
     border-radius: 5px;
 }
 
+input:focus, select:focus, button:focus {
+    outline: 2px solid #007bff;
+}
+
 select {
     background: white;
     cursor: pointer;
@@ -89,16 +99,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    margin-top: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 th, td {
     border: 1px solid #ddd;
     padding: 12px;
@@ -108,6 +108,18 @@ th, td {
 th {
     background-color: #007bff;
     color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 600px) {
