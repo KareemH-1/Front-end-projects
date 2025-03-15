@@ -7,31 +7,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
         <h1>Expense Tracker</h1>
         <p>Monitor your spending efficiently</p>
     </header>
 
     <div class="container">
+        
+        <div class="card">
+            <h2>Set Income</h2>
+            <input type="number" id="salary" placeholder="Enter Salary">
+            <button id="setSalary">Set</button>
+        </div>
+
         <div class="card">
             <h2>Add Expense</h2>
-            <input type="text" id="description" placeholder="Expense Description">
-            <input type="number" id="amount" placeholder="Amount">
-            <input type="date" id="date">
+            <div class="expense-inputs">
+                <input type="text" id="description" placeholder="Description">
+                <input type="number" id="amount" placeholder="Amount">
+                <input type="date" id="date">
+            </div>
             <button id="addExpense">Add</button>
         </div>
 
-        <div class="card">
-            <h2>Summary</h2>
-            <p>Balance: $<span id="balance">0</span></p>
-            <p>Total Income: $<span id="income">0</span></p>
-            <p>Total Expenses: $<span id="expenses">0</span></p>
+        <div class="summary-cards">
+            <div class="summary-item">
+                <h3>Balance</h3>
+                <p>$<span id="balance">0</span></p>
+            </div>
+            <div class="summary-item">
+                <h3>Income</h3>
+                <p>$<span id="income">0</span></p>
+            </div>
+            <div class="summary-item">
+                <h3>Expenses</h3>
+                <p>$<span id="expenses">0</span></p>
+            </div>
         </div>
 
-        <div class="card">
+        <div class="card transactions">
             <h2>Transactions</h2>
             <ul id="transactionList"></ul>
         </div>
+
     </div>
 
     <script src="script.js"></script>
