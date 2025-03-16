@@ -1,0 +1,307 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e6e6e6;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(30, 39, 59, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #00aeff, #a200ff, #00aeff);
+    z-index: -1;
+    border-radius: 25px;
+    opacity: 0.3;
+    filter: blur(15px);
+    transition: opacity 0.3s ease;
+}
+
+.container:hover::before {
+    opacity: 0.5;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #00aeff, #a200ff);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: #b8c1ec;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+input[type="datetime-local"] {
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: rgba(20, 30, 48, 0.7);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: #00aeff;
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.3);
+}
+
+button {
+    background: linear-gradient(90deg, #00aeff, #a200ff);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 174, 255, 0.4);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 174, 255, 0.6);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#countdown {
+    font-size: 3.5rem;
+    color: #fff;
+    margin: 1.5rem 0;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.time-unit {
+    display: inline-block;
+    min-width: 80px;
+    position: relative;
+    animation: pulse 1s infinite alternate;
+}
+
+.time-label {
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #b8c1ec;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 174, 255, 0.3);
+    filter: blur(8px);
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-35px) translateX(-15px);
+    }
+    75% {
+        transform: translateY(-15px) translateX(15px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        width: 85%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    #countdown {
+        font-size: 2.5rem;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .time-unit {
+        min-width: 70px;
+    }
+    
+    button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #countdown {
+        font-size: 2rem;
+        gap: 8px;
+    }
+    
+    .time-unit {
+        min-width: 60px;
+    }
+    
+    .time-label {
+        font-size: 0.7rem;
+    }
+    
+    input[type="datetime-local"] {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    label {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding: 1rem 0.75rem;
+        width: 98%;
+    }
+    
+    #countdown {
+        font-size: 1.8rem;
+        gap: 5px;
+    }
+    
+    .time-unit {
+        min-width: 50px;
+    }
+}
+
+@media (max-height: 600px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+}
