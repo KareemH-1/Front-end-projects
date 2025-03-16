@@ -19,7 +19,33 @@ document.addEventListener('DOMContentLoaded', function() {
         dateTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
     }
     
-    setDefaultDateTime();
+    function loadFromLocalStorage() {
+        const savedTargetDate = localStorage.getItem('countdownTargetDate');
+        
+        if (savedTargetDate) {
+            const savedDate = new Date(parseInt(savedTargetDate));
+            
+            if (!isNaN(savedDate.getTime()) && savedDate > new Date()) {
+                const year = savedDate.getFullYear();
+                const month = String(savedDate.getMonth() + 1).padStart(2, '0');
+                const day = String(savedDate.getDate()).padStart(2, '0');
+                const hours = String(savedDate.getHours()).padStart(2, '0');
+                const minutes = String(savedDate.getMinutes()).padStart(2, '0');
+                
+                dateTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+                targetDate = savedDate.getTime();
+                startCountdown();
+                return true;
+            } else {
+                localStorage.removeItem('countdownTargetDate');
+            }
+        }
+        return false;
+    }
+    
+    if (!loadFromLocalStorage()) {
+        setDefaultDateTime();
+    }
     
     startButton.addEventListener('click', function() {
         startCountdown();
@@ -48,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        localStorage.setItem('countdownTargetDate', targetDate.toString());
+        
         startButton.textContent = 'Countdown Started';
         setTimeout(function() {
             startButton.textContent = 'Restart Countdown';
@@ -70,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(countdownInterval);
             displayTimeElements(0, 0, 0, 0);
             startButton.textContent = 'Set New Countdown';
+            localStorage.removeItem('countdownTargetDate');
             return;
         }
         
@@ -93,13 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return '0' + time;
         } else {
             return time;
-        }
-    }
-    
-    if (dateTimeInput.value) {
-        const autoTargetDate = new Date(dateTimeInput.value).getTime();
-        if (!isNaN(autoTargetDate) && autoTargetDate > new Date().getTime()) {
-            startCountdown();
         }
     }
 });
