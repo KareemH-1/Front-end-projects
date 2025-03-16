@@ -215,6 +215,66 @@ button:active {
         transform: translateY(0) translateX(0);
     }
 }
+@media (min-width: 1200px) {
+    .container {
+        max-width: 700px;
+        padding: 4rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    #countdown {
+        font-size: 4.5rem;
+        gap: 25px;
+    }
+    
+    .time-unit {
+        min-width: 120px;
+    }
+    
+    .time-label {
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }
+    
+    input[type="datetime-local"] {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    button {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+    }
+    
+    label {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 900px;
+        padding: 5rem;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    #countdown {
+        font-size: 5.5rem;
+        gap: 35px;
+    }
+    
+    .time-unit {
+        min-width: 150px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 2rem;

@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let countdownInterval;
     let targetDate;
+    let alarmSound = new Audio('alarm-clock-90867.mp3');
+    alarmSound.loop = true;
     
     function setDefaultDateTime() {
         const tomorrow = new Date();
@@ -48,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     startButton.addEventListener('click', function() {
+        if (alarmSound.paused === false) {
+            stopAlarm();
+            return;
+        }
         startCountdown();
     });
     
@@ -59,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function startCountdown() {
         clearInterval(countdownInterval);
+        stopAlarm();
         
         const inputDateTime = dateTimeInput.value;
         
@@ -97,8 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (timeRemaining <= 0) {
             clearInterval(countdownInterval);
             displayTimeElements(0, 0, 0, 0);
-            startButton.textContent = 'Set New Countdown';
+            startButton.textContent = 'Stop Alarm';
             localStorage.removeItem('countdownTargetDate');
+            playAlarm();
             return;
         }
         
@@ -123,5 +131,21 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             return time;
         }
+    }
+    
+    function playAlarm() {
+        try {
+            alarmSound.play();
+            document.title = "⏰ TIME'S UP! ⏰";
+        } catch (error) {
+            console.error("Could not play alarm sound:", error);
+        }
+    }
+    
+    function stopAlarm() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        document.title = "Countdown Timer";
+        startButton.textContent = "Set New Countdown";
     }
 });
