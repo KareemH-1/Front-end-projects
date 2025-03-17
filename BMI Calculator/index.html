@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>BMI Calculator</h1>
     <div id="container">
-        <section id="display">
-            <p id="WeightStatus"></p>
-            <p id="BMI"></p>
-        </section>
-
         <section id="inputs">
             <form id="bmi-form">
                 <label for="weight">Weight:</label>
@@ -29,8 +25,12 @@
                     <option value="feet">feet/inches</option>
                 </select>
 
-                <button type="submit">Calculate</button>
+                <button type="submit" id="Calculate">Calculate</button>
             </form>
+        </section>
+        <section id="display">
+            <p id="WeightStatus"></p>
+            <p id="BMI"></p>
         </section>
     </div>
 </body>

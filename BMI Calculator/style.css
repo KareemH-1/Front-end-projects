@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #3498db;
+    font-size: 2.5rem;
+}
+
+#container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#inputs {
+    padding: 20px;
+}
+
+#bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+input[type="number"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#display {
+    padding: 20px;
+    background-color: #ecf0f1;
+    text-align: center;
+}
+
+#BMI {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #2980b9;
+}
+
+#WeightStatus {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.underweight {
+    color: #e67e22;
+}
+
+.normal {
+    color: #27ae60;
+}
+
+.overweight {
+    color: #f39c12;
+}
+
+.obese {
+    color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    #container {
+        max-width: 100%;
+    }
+}
