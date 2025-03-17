@@ -39,27 +39,47 @@ document.addEventListener('DOMContentLoaded', function() {
         let height = parseFloat(heightInput.value);
         
         if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-            bmiDisplay.textContent = 'Please enter valid values';
-            weightStatusDisplay.textContent = '';
+            showError('Please enter valid positive values.');
             return;
         }
 
         if (weightType.value === 'lbs') {
-            weight = weight * 0.453592; 
+            if (weight > 1000) {
+                showError('Weight value is unrealistically high.');
+                return;
+            }
+            weight = weight * 0.453592;
+        } else {
+            if (weight > 500) {
+                showError('Weight value is unrealistically high.');
+                return;
+            }
         }
 
         if (heightType.value === 'cm') {
-            height = height / 100; 
+            if (height < 50 || height > 250) {
+                showError('Height value is unrealistic.');
+                return;
+            }
+            height = height / 100;
         } else if (heightType.value === 'feet') {
             const inchesInput = document.getElementById('inches');
             const inches = inchesInput ? parseFloat(inchesInput.value) || 0 : 0;
             
-            height = (height * 0.3048) + (inches * 0.0254); 
+            if (height > 9 || (height === 9 && inches > 0)) {
+                showError('Height value is unrealistically high.');
+                return;
             }
-
+            if (height < 1) {
+                showError('Height value is unrealistically low.');
+                return;
+            }
+            
+            height = (height * 0.3048) + (inches * 0.0254);
+        }
 
         const bmi = weight / (height * height);
-    
+        
         bmiDisplay.textContent = `BMI: ${bmi.toFixed(1)}`;
         
         let status = '';
@@ -80,10 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         weightStatusDisplay.textContent = status;
-        
-
         weightStatusDisplay.classList.remove('underweight', 'normal', 'overweight', 'obese');
-
         weightStatusDisplay.classList.add(statusClass);
+    }
+    
+    function showError(message) {
+        bmiDisplay.textContent = message;
+        bmiDisplay.style.color = '#e74c3c';
+        weightStatusDisplay.textContent = '';
+        weightStatusDisplay.classList.remove('underweight', 'normal', 'overweight', 'obese');
+        
+        setTimeout(() => {
+            bmiDisplay.style.color = '#2980b9';
+        }, 3000);
     }
 });
