@@ -11,34 +11,6 @@ body {
     padding: 40px 20px;
     overflow-x: hidden;
 }
-
-h1 {
-    font-size: 42px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #00df82;
-    margin-bottom: 20px;
-    display: inline-block;
-    position: relative;
-}
-
-h1::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    width: 60%;
-    height: 3px;
-    background: #00df82;
-    transform: translateX(-50%) scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-h1:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
 hr {
     width: 80%;
     height: 2px;
@@ -166,8 +138,15 @@ li:hover span#note {
         padding: 15px;
     }
 
-    h1 {
-        font-size: 32px;
+    .button {
+        font-size: 20px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    .hover-text {
+        -webkit-text-stroke: 0.8px var(--animation-color);
+        border-right: 4px solid var(--animation-color);
     }
 
     p {
@@ -230,3 +209,67 @@ li:hover span#note {
     from { width: 100%; }
     to { width: 0; }
 }
+
+/* From Uiverse.io by satyamchaudharydev */ 
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #37FF8B;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial", sans-serif;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    white-space: nowrap;
+}
+
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: width 0.5s ease-in-out;
+    -webkit-text-stroke: 1px var(--animation-color);
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+@media (max-width: 480px) {
+    .button {
+        font-size: 1.5em;
+        letter-spacing: 2px;
+    }
+
+    .hover-text {
+        -webkit-text-stroke: 0.8px var(--animation-color);
+        border-right: 4px solid var(--animation-color);
+    }
+}
+
