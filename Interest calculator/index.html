@@ -9,14 +9,28 @@
 <body>
     <h1>Interest Calculator</h1>
     <div class="container">
-        <label for="principal">Principal Amount:</label>
-        <input type="number" id="principal" placeholder="Enter Principal Amount">
-        <label for="rate">Interest Rate:</label>
-        <input type="number" id="rate" placeholder="Enter Interest Rate">
-        <label for="years">Years:</label>
-        <input type="number" id="years" placeholder="Enter Years">
+        <div class="input-container">
+            <input type="number" id="principal" required>
+            <label for="principal">Principal Amount</label>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="rate" required>
+            <label for="rate">Interest Rate (%)</label>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="years" required>
+            <label for="years">Years</label>
+            <div class="underline"></div>
+        </div>
+
         <button type="button" id="calculate">Calculate</button>
         <div id="result"></div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
