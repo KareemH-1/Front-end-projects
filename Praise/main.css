@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Amiri', serif;
+    background: linear-gradient(180deg, #1A1A1A, #3E2723);
+    background-attachment: fixed;
+    color: #E8C472;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-top: 20px;
+    text-shadow: 4px 4px 12px rgba(232, 196, 114, 0.8);
+    letter-spacing: 2px;
+    border-bottom: 2px solid #E8C472;
+    display: inline-block;
+    padding-bottom: 10px;
+     padding: 10px 20px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #E8C472;
+    display: block;
+    width: 100%;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #FFF8D6;
+}
+
+li {
+    background: linear-gradient(135deg, #9C7A3B, #70532A);
+    border-radius: 18px;
+    padding: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 5px 12px rgba(232, 196, 114, 0.5);
+    border: 2px solid rgba(232, 196, 114, 0.7);
+}
+
+li:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 20px rgba(232, 196, 114, 0.7);
+    background: linear-gradient(135deg, #B28F5B, #84623A);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.2rem;
+    }
+    li {
+        font-size: 1.5rem;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    li {
+        font-size: 1.3rem;
+        padding: 18px;
+    }
+}
