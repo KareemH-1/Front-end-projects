@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+body {
+    background: #0f172a;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#cat ,#dog{
+        display: none;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ff007f, #ff9500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bigContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.container {
+    opacity: 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 370px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 50%);
+    transform: rotate(45deg);
+    opacity: 0.2;
+}
+
+.container:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+#catContainer {
+    background: rgba(255, 20, 147, 0.1);
+    border: 2px solid rgba(255, 20, 147, 0.5);
+}
+
+#dogContainer {
+    background: rgba(30, 144, 255, 0.1);
+    border: 2px solid rgba(30, 144, 255, 0.5);
+}
+img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    margin-top: 10px;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn {
+    background: linear-gradient(90deg, #ff007f, #ff9500);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease-in-out;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #ff00ff, #ff5500);
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .bigContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        max-width: 280px;
+        height: 280px;
+    }
+}
+
+.breed-name {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+h2 {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.container:hover h2 {
+    opacity: 1;
+}
