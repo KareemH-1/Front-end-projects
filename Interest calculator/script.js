@@ -35,18 +35,21 @@ calculate.addEventListener('click', () => {
     }
 
     if (isValid) {
-        const interest = (p * r * y) / 100;
-        const totalAmount = p + interest;
-        
+        let totalAmount = p;
+    
+        for (let i = 0; i < y; i++) {
+            totalAmount += (totalAmount * r) / 100;
+        }
+    
+        const interest = totalAmount - p;
+    
         result.innerHTML = `
             Interest after ${y} years is <strong>${interest.toFixed(2)}$</strong> <br>
             Total money after interest is <strong>${totalAmount.toFixed(2)}$</strong>
         `;
         result.style.display = "block";
-    } else {
-        result.textContent = errorMessage.trim();
-        result.style.display = "block";
     }
+  
 });
 
 function highlightError(input) {
