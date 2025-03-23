@@ -8,34 +8,49 @@ calculate.addEventListener('click', () => {
     const p = parseFloat(principal.value);
     const r = parseFloat(rate.value);
     const y = parseFloat(years.value);
-    const interest = (p * r * y) / 100;
+    let isValid = true;
+    let errorMessage = "";
 
-    ctgood =1;
-    if(p <= 0 || isNaN(p)){
-        result.textContent = 'Please enter a valid principal amount.';
-        ctgood =0;
-        const principalLabel = principal.nextElementSibling;
-        principalLabel.style.color = 'rgb(255, 0, 0)';
-        principal.nextElementSibling.nextElementSibling.style.backgroundColor = 'rgb(255, 0, 0)';
+    [principal, rate, years].forEach(input => {
+        input.nextElementSibling.style.color = "#ccc";
+        input.nextElementSibling.nextElementSibling.style.backgroundColor = "#333";
+    });
+
+    if (isNaN(p) || p <= 0) {
+        errorMessage += "• Please enter a valid principal amount.\n";
+        highlightError(principal);
+        isValid = false;
     }
 
-    if(r <= 0 || isNaN(r)){
-        result.textContent = 'Please enter a valid interest rate.';
-        ctgood =0;
-        const rateLabel = rate.nextElementSibling;
-        rateLabel.style.color = 'rgb(255, 0, 0)';
-        rate.nextElementSibling.nextElementSibling.style.backgroundColor = 'rgb(255, 0, 0)';
+    if (isNaN(r) || r <= 0) {
+        errorMessage += "• Please enter a valid interest rate.\n";
+        highlightError(rate);
+        isValid = false;
     }
 
-    if(y <= 0 || isNaN(y)){
-        result.textContent = 'Please enter a valid number of years.';
-        ctgood =0;
-        const yearsLabel = years.nextElementSibling;
-        yearsLabel.style.color = 'rgb(255, 0, 0)';
-        years.nextElementSibling.nextElementSibling.style.backgroundColor = 'rgb(255, 0, 0)';
+    if (isNaN(y) || y <= 0) {
+        errorMessage += "• Please enter a valid number of years.\n";
+        highlightError(years);
+        isValid = false;
     }
-     if(ctgood ==1){
-    result.textContent = `Interest after ${y} years is ${interest.toFixed(2)}$`;
-    result.style.display = 'block';
+
+    if (isValid) {
+        const interest = (p * r * y) / 100;
+        const totalAmount = p + interest;
+        
+        result.innerHTML = `
+            Interest after ${y} years is <strong>${interest.toFixed(2)}$</strong> <br>
+            Total money after interest is <strong>${totalAmount.toFixed(2)}$</strong>
+        `;
+        result.style.display = "block";
+    } else {
+        result.textContent = errorMessage.trim();
+        result.style.display = "block";
     }
 });
+
+function highlightError(input) {
+    const label = input.nextElementSibling;
+    label.style.color = "rgb(255, 0, 0)";
+    input.nextElementSibling.nextElementSibling.style.backgroundColor = "rgb(255, 0, 0)";
+}
