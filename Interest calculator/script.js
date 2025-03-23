@@ -48,6 +48,11 @@ calculate.addEventListener('click', () => {
             Total money after interest is <strong>${totalAmount.toFixed(2)}$</strong>
         `;
         result.style.display = "block";
+
+    }
+    else {
+        result.textContent = errorMessage.trim();
+        result.style.display = "block";
     }
   
 });
