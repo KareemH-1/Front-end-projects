@@ -16,6 +16,17 @@ body {
   padding: 0;
 }
 
+::-webkit-scrollbar{
+  width: 8px;
+  background-color: #031d12;
+
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, #00df82, #017d4d);
+  border-radius: 10px;
+}
+
 #cat, #dog {
   display: none;
 }
