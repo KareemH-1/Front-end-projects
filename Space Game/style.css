@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0a0a1a;
+    font-family: 'Orbitron', sans-serif;
+    touch-action: manipulation;
+}
+
+#gameCanvas {
+    border: 3px solid #ff1493;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background: url("images/Background.png");
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.5), 
+                0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+#Score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: #00ffff;
+    text-shadow: 
+        0 0 10px #ff1493, 
+        0 0 20px #00ffff;
+    z-index: 10;
+}
+
+#Controls {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 14px;
+    color: #ff1493;
+    text-shadow: 
+        0 0 5px #00ffff;
+    z-index: 10;
+    margin-top: 25px;
+}
+
+.mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 20;
+}
+
+.mobile-btn {
+    background-color: rgba(255, 20, 147, 0.5);
+    border: 2px solid #ff1493;
+    color: #00ffff;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mobile-btn:active {
+    background-color: rgba(0, 255, 255, 0.2);
+    transform: scale(0.95);
+}
+
+#gameOverScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.game-over-content {
+    text-align: center;
+    background-color: rgba(255, 20, 147, 0.2);
+    border: 3px solid #ff1493;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.game-over-content h2 {
+    color: #ff1493;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.game-over-content p {
+    color: #00ffff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#RestartButton {
+    background-color: #00ffff;
+    color: #0a0a1a;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#RestartButton:hover {
+    background-color: #ff1493;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .mobile-controls {
+        display: none;
+    }
+}

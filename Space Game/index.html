@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="Score">Score: 0</p>
+    <p id="Controls">Move: ← → or WASD | Shoot: Spacebar</p>
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameOverScreen" class="hidden">
+        <div class="game-over-content">
+            <h2>GAME OVER</h2>
+            <p id="FinalScore">Score: 0</p>
+            <button id="RestartButton">Restart</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
