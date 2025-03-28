@@ -19,7 +19,9 @@ const player = {
     speed: 5,
     image: new Image()
 };
+
 player.image.src = 'images/player.png';
+if(player.image==='undefined') console.log('Player image not found');
 
 const bullets = [];
 const bulletSpeed = 10;
@@ -226,6 +228,7 @@ function spawnEnemy() {
             image: new Image()
         };
         enemy.image.src = 'images/enemyShip.png';
+        if(enemy.image==='undefined') console.log('Player image not found');
         enemies.push(enemy);
     }
 }
