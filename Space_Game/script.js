@@ -19,7 +19,7 @@ const player = {
     speed: 5,
     image: new Image()
 };
-player.image.src = 'images/Player.png';
+player.image.src = 'images/player.png';
 
 const bullets = [];
 const bulletSpeed = 10;
@@ -225,7 +225,7 @@ function spawnEnemy() {
             height: 50,
             image: new Image()
         };
-        enemy.image.src = 'images/EnemyShip.png';
+        enemy.image.src = 'images/enemyShip.png';
         enemies.push(enemy);
     }
 }
