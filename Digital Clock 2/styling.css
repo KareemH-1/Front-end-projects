@@ -1,10 +1,7 @@
-@font-face {
-    font-family: 'digital-7';
-    src: url('digital-7.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&family=Roboto+Slab:wght@100..900&family=Tektur:wght@400..900&display=swap');
 
 body {
-    background: linear-gradient(180deg, #201d2d, #1b0f2a);
+    background: linear-gradient(180deg, #2e2f44, #242534);
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -12,10 +9,77 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    font-family: 'digital-7', monospace;
     color: white;
+    font-family: "Phudu", sans-serif;
+    overflow: hidden;
+}
+.container{
+    background-color: #2d2e40;
+    padding: 25px;
+    width: 450px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: -20px 5px 50px rgba(43,81,128,255), 20px 5px 50px rgba(255,105,180,0.8);
+    position: relative;
+    overflow: hidden;
+}
+.time{
+    font-size: 80px;
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+}
+#hour{
+    background: linear-gradient(to right, rgba(97,170,255,255) 0%, rgba(97,113,252,255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#minute{
+    background: linear-gradient(to bottom, rgba(252,167,110,255) 0%, rgba(252,124,136,255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#second{
+    background: linear-gradient(to right, #dd5ca3 0%, #fbe487 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+.ampm{
+    position: absolute;
+    top: 100px;
+    left: 410px;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 10px rgb(175, 179, 112), 0 0 10px rgb(238, 199, 100);
+    background: linear-gradient(to right, #e4e178 0%, #fbe487 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.date{
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: -20px;
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, rgba(192,115,185,255) 0%, rgba(90,65,116,255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#colon{
+    color:#92938e;
+    animation: blink 1s infinite;
+}
 @keyframes blink {
     50% { opacity: 0; }
 }
