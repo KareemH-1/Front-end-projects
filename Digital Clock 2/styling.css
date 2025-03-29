@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'digital-7';
+    src: url('digital-7.ttf') format('truetype');
+}
+
+body {
+    background: linear-gradient(180deg, #201d2d, #1b0f2a);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'digital-7', monospace;
+    color: white;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
