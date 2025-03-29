@@ -9,11 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="dropdown">
         <button class="settings-button"><span class="material-symbols-outlined">more_vert</span></button>
+        <div class="dropdown">
             <div class="dropdown-content">
-                <a href="#" class="ampm-button" id="am">AM</a>
-                <a href="#" class="ampm-button" id="pm">PM</a>
+                <h3 class="format">24-hour format</h3>
+                <label class="switch">
+                    <input class="cb" type="checkbox" />
+                    <span class="toggle">
+                      <span class="left">off</span>
+                      <span class="right">on</span>
+                    </span>
+                  </label>
             </div>
         </div>
         <h1 class="time"><span id="hour">12</span> <span id="colon">:</span> <span id="minute">00</span> <span id="colon">:</span> <span id="second">00</span></h1>
@@ -43,5 +49,6 @@
         <span></span>
         <span></span>
      </div>
+     <script src="script.js"></script>
 </body>
 </html>
