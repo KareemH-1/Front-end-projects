@@ -54,8 +54,8 @@ body {
 .ampm {
     position: absolute;
     top: 100px;
-    left: 410px;
-    right: 0;
+    right: 30px;
+    left: auto;
     text-align: center;
     font-size: 20px;
     font-weight: 600;
@@ -118,39 +118,68 @@ body {
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 1;
-    display: none;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px 0;
-    right: 0;
-    top: 100%;
-    transform-origin: top right;
+    padding: 15px;
+    right: 50%;
+    top: 30px;
+    transform: translate(50%, 0);
     animation: fadeIn 0.2s ease-out forwards;
     display: none;
     flex-direction: column;
     align-items: center;
+    width: 180px;
 }
 
 .dropdown-content h3 {
     color: white;
     padding: 10px 16px;
+    margin-bottom: 45px;
     text-decoration: none;
     display: block;
     font-family: "Phudu", sans-serif;
     font-size: 14px;
+
     transition: all 0.2s ease;
-    border-bottom: 2px solid #64b5f6;
+}
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .time {
+        font-size: 60px;
+        margin-top: 20px;
+    }
+    
+    .ampm {
+        top: 80px;
+        left: auto;
+        right: 5px;
+    }
+    
+    .date {
+        position: relative;
+        margin-top: 20px;
+        font-size: 30px;
+    }
 }
 
+
 /* The switch - the box around the slider */
+
 .switch {
     font-size: 17px;
-    position: relative;
+    position: absolute;
     display: inline-block;
     width: 4em;
     height: 2em;
     user-select: none;
-    margin-top: 10px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Hide default HTML checkbox */
@@ -162,9 +191,8 @@ body {
 
 /* The slider */
 .toggle {
+    
     position: absolute;
-    bottom:10px;
-    left: 40px;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -175,7 +203,7 @@ body {
     font-weight: 700;
     overflow: hidden;
     box-shadow: -0.3em 0 0 0 #373737, -0.3em 0.3em 0 0 #373737,
-      0.3em 0 0 0 #373737, 0.3em 0.3em 0 0 #373737, 0 0.3em 0 0 #373737;
+                0.3em 0 0 0 #373737, 0.3em 0.3em 0 0 #373737, 0 0.3em 0 0 #373737;
 }
 
 .toggle > .left {
@@ -301,7 +329,7 @@ body {
     backface-visibility: hidden;
     position: absolute;
     animation: move;
-    animation-duration: 45;
+    animation-duration: 45s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
