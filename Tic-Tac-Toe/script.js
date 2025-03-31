@@ -209,3 +209,22 @@ function setBoardHoverClass() {
         }
     }
 }
+
+const checkbox = document.querySelector('.checkbox');
+const body = document.body;
+
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+    document.querySelectorAll('*').forEach(el => {
+        if (checkbox.checked) {
+            el.classList.add('dark-mode');
+        } else {
+            el.classList.remove('dark-mode');
+        }
+    });
+});
+

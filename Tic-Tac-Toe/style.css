@@ -23,10 +23,16 @@ h1 {
     color: #333;
     margin-bottom: 10px;
 }
+h1.dark-mode{
+    color: #f0f0f0;
+}
 
 h2 {
     color: #555;
     margin: 10px 0;
+}
+h2.dark-mode{
+    color: #f0f0f0;
 }
 
 button {
@@ -35,14 +41,19 @@ button {
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #4c7caf;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
+button.dark-mode{
+    background-color: #4CAF50;
+}
 button:hover {
-    background-color: #45a049;
+    background-color: #2a86e8;
+}
+button:hover.dark-mode{
+    background-color: #0cad11;
 }
 
 .game {
@@ -61,6 +72,10 @@ button:hover {
     padding: 10px;
 }
 
+.board.dark-mode{
+    background-color: #f0f0f0;
+}
+
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
@@ -72,11 +87,16 @@ button:hover {
     position: relative;
     cursor: pointer;
 }
+.cell.dark-mode{
+    background-color: #333;
+}
 
 .cell:not(.x):not(.o):hover {
     background-color: #f5f5f5;
 }
-
+.cell:not(.x):not(.o):hover.dark-mode{
+    background-color: #f0f0f0;
+}
 .cell.x, .cell.o {
     cursor: not-allowed;
 }
@@ -85,9 +105,16 @@ button:hover {
 .board.x .cell:not(.x):not(.o):hover::after {
     background-color: #cccccc;
 }
+.board.x .cell:not(.x):not(.o):hover::before.dark-mode,
+.board.x .cell:not(.x):not(.o):hover::after.dark-mode{
+    background-color: #333;
+} 
 
 .board.o .cell:not(.x):not(.o):hover::before {
     background-color: #cccccc;
+}
+.board.o .cell:not(.x):not(.o):hover::before.dark-mode{
+    background-color: #333;
 }
 
 .cell.x::before,
@@ -133,6 +160,10 @@ button:hover {
     height: calc(var(--mark-size) * .7);
     background-color: white;
 }
+.cell.o::after.dark-mode,
+.board.o .cell:not(.x):not(.o):hover::after.dark-mode{
+    background-color: #333;
+}
 
 .winning-message {
     display: none;
@@ -149,6 +180,9 @@ button:hover {
     font-size: 5rem;
     text-align: center;
 }
+.winning-message.dark-mode{
+    color: #ffffff;
+}
 
 .winning-message.show {
     display: flex;
@@ -163,10 +197,17 @@ button:hover {
     cursor: pointer;
     border-radius: 5px;
 }
+#restartButton.dark-mode{
+    background-color: #333;
+}
 
 #restartButton:hover {
     background-color: white;
     color: #4CAF50;
+}
+#restartButton.dark-mode:hover{
+    background-color: #333;
+    color: white;
 }
 
 
@@ -235,4 +276,9 @@ button:hover {
       -webkit-box-shadow: none;
       box-shadow: none;
     }
-    
+
+body.dark-mode {
+    background-color: #28292c;
+    color: #d8dbe0;
+}
+
