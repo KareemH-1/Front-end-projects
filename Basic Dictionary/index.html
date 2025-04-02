@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+</head>
+<body>
+    <h1>Dictionary</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button id="searchButton">Search</button>
+
+    <div id="result">
+        <section id="Phonetics">
+            <h2>Phonetics</h2>
+            <p id="ph-text">text: </p>
+            <audio id="ph-audio" controls></audio>
+        </section>
+
+        <section id="Meanings">
+            <h2>Meanings</h2>
+            <h3>Part of Speech</h3>
+            <section id="partOfSpeech">
+                <section id="exclamation">
+                        <h4>Exclamation</h4>
+                        <p id="definition">Definition: </p>
+                        <p id="example">Example: </p>
+                        <p id="synonyms">Synonyms: </p>
+                        <p id="antonyms">Antonyms: </p>
+                </section>
+                <section id="noun">
+                        <h4>Noun</h4>
+                        <p id="definition">Definition: </p>
+                        <p id="example">Example: </p>
+                        <p id="synonyms">Synonyms: </p>
+                        <p id="antonyms">Antonyms: </p>
+                </section>
+                <section id="verb">
+                        <h4>Verb</h4>
+                        <p id="definition">Definition: </p>
+                        <p id="example">Example: </p>
+                        <p id="synonyms">Synonyms: </p>
+                        <p id="antonyms">Antonyms: </p>
+                </section>
+        </section>
+
+
+        <p id="origin">Origin: </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
