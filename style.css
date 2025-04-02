@@ -66,27 +66,89 @@ img {
     transition: transform 0.3s ease;
 }
 
-
-#ImgButton {
-    background: #00df82;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #121212;
-    border-radius: 10px;
+#gallery-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    z-index: 999;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 223, 130, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-#ImgButton:hover {
-    background: #03a86d;
-    transform: scale(1.05);
+#gallery-button:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(0, 223, 130, 0.7));
 }
-#ImgButton:active {
+
+#gallery-button:active {
     transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(0, 223, 130, 0.6);
+}
+
+.gallery-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible; 
+}
+
+.gallery-icon {
+    fill: #00df82;
+    stroke: #121212;
+    stroke-width: 1;
+    transition: fill 0.3s ease;
+}
+
+.gallery-circle {
+    stroke: #00df82;
+    stroke-width: 3;
+    stroke-dasharray: 202;
+    stroke-dashoffset: 202;
+    transition: stroke-dashoffset 0.6s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#gallery-button:hover .gallery-icon {
+    fill: #03a86d;
+}
+
+#gallery-button:hover .gallery-circle {
+    stroke-dashoffset: 0;
+    animation: rotate-circle 4s linear infinite;
+}
+
+.gallery-tooltip {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #121212;
+    color: #00df82;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0, 223, 130, 0.4);
+    border: 1px solid #00df82;
+}
+
+#gallery-button:hover .gallery-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes rotate-circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -130,6 +192,12 @@ li:hover span#note {
 }
 
 @media (max-width: 768px) {
+    #gallery-button {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
     ul {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
