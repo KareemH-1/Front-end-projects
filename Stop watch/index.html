@@ -7,11 +7,15 @@
     <title>Stop Watch</title>
 </head>
 <body>
-    <header>Stop Watch</header>
-    <h1 id = "time">00:00:00:00</h1>
-    <button id="start" onclick="startClock()">Start</button>
-    <button id="Stop" onclick="stopClock()">Stop</button>
-    <button id="Reset" onclick="resetClock()">Reset</button>
+    <div class="container">
+        <header>Stop Watch</header>
+        <h1 id="time">00:00:00:00</h1>
+        <div class="buttons">
+            <button id="start" onclick="startClock()">Start</button>
+            <button id="Stop" onclick="stopClock()">Stop</button>
+            <button id="Reset" onclick="resetClock()">Reset</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
