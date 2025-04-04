@@ -14,7 +14,7 @@ function setTime(){
     const hours = Math.floor(seconds/3600);
     const secondsCounted = seconds%60;
     const minutesCounted = minutes%60;
-    time.innerHTML = `${zerostart(hours)} :${zerostart(minutesCounted)} : ${zerostart(secondsCounted)} : ${zerostart(centiseconds)}`; 
+    time.innerHTML = `${zerostart(hours)}:${zerostart(minutesCounted)}:${zerostart(secondsCounted)}:${zerostart(centiseconds)}`; 
 }
 function timer(){
     centiseconds++; 
