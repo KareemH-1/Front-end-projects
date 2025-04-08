@@ -110,3 +110,40 @@ styleSheet.textContent = `
     20%, 40%, 60%, 80% { transform: translate(2px, 0) rotate(2deg); }
 }`;
 document.head.appendChild(styleSheet);
+
+
+const inputL = document.getElementById('numLevel');
+const changeLBtn = document.getElementById('changeLevel');
+const error = document.getElementById('error');
+
+inputL.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        chooseLevel();
+    }
+});
+
+changeLBtn.addEventListener('click', chooseLevel);
+    
+function chooseLevel(){
+    const levelInput = parseInt(inputL.value);
+    if(levelInput>999){
+        error.innerHTML="The level entered is too big";
+        error.style.color= "#ff3030";
+    }
+    else if(levelInput < 1){
+        error.innerHTML="The level entered is too small";
+        error.style.color= "#ff3030";
+    }
+
+    else{
+        level = levelInput;
+        changeInstruction();
+        randomNum = findRandomNum();
+        levelP.innerHTML = `Level: ${level}`;
+        shakeElement(gameContainer);
+        error.style.color= "#40e04d";
+        error.innerHTML="level changed successfully!";
+
+    }
+}
+

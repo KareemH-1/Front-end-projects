@@ -95,7 +95,46 @@ h1 {
 .correct-answer {
     animation: bounce 0.5s ease-in-out 3;
 }
-
+#changeL{
+    position: relative;
+    bottom:-45px;
+    background-color: #118ab2;
+    border: 3px solid #073b4c;
+    border-radius: 15px;
+    box-shadow: -1px 1px 0px #073b4c;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+#changeLevel{
+    background-color: #06d6a0;
+    color: #073b4c;
+    border: 2px solid #073b4c;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+#numLevel{
+    width: 25%;
+    padding: 12px;
+    border: 2px solid #073b4c;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+    background-color: #fff;
+    text-align: center;
+}
+#numLevel:focus {
+    outline: none;
+    border-color: #ef4747;
+}
+#error{
+    color:#ff3030;
+    font-weight: 900;
+}
 @media (max-width: 480px) {
     h1 {
         font-size: 2rem;
