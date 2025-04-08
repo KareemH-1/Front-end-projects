@@ -27,8 +27,15 @@ submit.addEventListener('click', () => {
         setTimeout(() => {
             result.innerHTML = "";
         }, 2000);
-    } else {
+    } else if (guess > randomNum) {
         result.innerHTML = "Too high";
+        result.style.color = "red";
+        setTimeout(() => {
+            result.innerHTML = "";
+        }, 2000);
+    }
+    else{
+        result.innerHTML = "Please enter a number between 1 and " + (10 * level);
         result.style.color = "red";
         setTimeout(() => {
             result.innerHTML = "";

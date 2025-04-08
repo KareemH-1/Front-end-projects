@@ -1,0 +1,54 @@
+body{
+    background-color:rgb(10, 10, 10);
+    color:white;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+}
+
+
+#Game{
+    background-color:rgb(19, 19, 20);
+    border-radius:20px;
+    padding:20px;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+#guess{
+    background-color:rgb(189, 189, 189);
+    border-radius:20px;
+    padding:20px;
+    font-size: large;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+#submit{
+    background-color:rgb(189, 189, 189);
+    border-radius:20px;
+    padding:20px;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+#result{
+    background-color:rgb(19, 19, 20);
+    border-radius:20px;
+    font-size:large;
+    padding:20px;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+#instruction{
+    border-radius:20px;
+    padding:20px;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
