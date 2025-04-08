@@ -56,7 +56,7 @@ function checkGuess() {
         shakeElement(gameContainer);
     } else if (guess === randomNum) {
         result.innerHTML = getRandomMessage(correctMessages);
-        result.style.color = "#ffd166";
+        result.style.color = "#00ff00";
         input.value = "";
         
         // Add confetti effect
@@ -73,10 +73,10 @@ function checkGuess() {
         }, 2000);
     } else if (guess < randomNum) {
         result.innerHTML = getRandomMessage(tooLowMessages);
-        result.style.color = "#ffd166";
+        result.style.color = "#ba4b4b";
     } else {
         result.innerHTML = getRandomMessage(tooHighMessages);
-        result.style.color = "#ef476f";
+        result.style.color = "orange";
     }
     
     setTimeout(() => {
