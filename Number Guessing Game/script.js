@@ -3,6 +3,7 @@ const submit = document.getElementById('submit');
 const result = document.getElementById('result');
 const instruction = document.getElementById('instruction');
 const gameContainer = document.getElementById('Game');
+const levelP = document.getElementById('level');
 
 let level = 1;
 let randomNum = findRandomNum();
@@ -67,6 +68,7 @@ function checkGuess() {
         
         setTimeout(() => {
             level++;
+            levelP.innerHTML = `Level: ${level}`;
             randomNum = findRandomNum();
             changeInstruction();
             result.innerHTML = `Level up! Now try 1 to ${10 * level}! 🎮`;

@@ -80,6 +80,12 @@ h1 {
     min-height: 30px;
     color: #fff;
 }
+#level {
+    margin-top:10px ;
+    color: #fff;
+    position: relative;
+    float: right;
+}
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
