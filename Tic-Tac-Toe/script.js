@@ -24,6 +24,12 @@ const WINNING_COMBINATIONS = [
     [0, 4, 8], [2, 4, 6]             // Diagonals
 ];
 
+function initializeGame() {
+    gameElement.style.display = 'none';
+    computerButton.style.display = 'block';
+    playerButton.style.display = 'block';
+}
+
 function loadComputer() {
     isVsComputer = true;
     gameActive = true;
@@ -103,7 +109,10 @@ function handleCellClick(e) {
 }
 
 function computerMove() {
-    if (!gameActive) return;
+    if (!gameActive || isDraw() || checkWin(X_CLASS) || checkWin(O_CLASS)) {
+        isComputerTurn = false;
+        return;
+    }
     
     const emptyCells = board.map((cell, index) => cell === '' ? index : null).filter(index => index !== null);
     
@@ -123,6 +132,10 @@ function computerMove() {
                 const cell = cellElements[blockMove];
                 placeMark(cell, blockMove, O_CLASS);
             } 
+            else if (board[4] === '') {
+                const cell = cellElements[4];
+                placeMark(cell, 4, O_CLASS);
+            }
             else {
                 const randomIndex = Math.floor(Math.random() * emptyCells.length);
                 const cellIndex = emptyCells[randomIndex];
@@ -211,7 +224,6 @@ function setBoardHoverClass() {
 }
 
 const checkbox = document.querySelector('.checkbox');
-const body = document.body;
 
 checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
@@ -219,12 +231,5 @@ checkbox.addEventListener('change', () => {
     } else {
         document.body.classList.remove('dark-mode');
     }
-    document.querySelectorAll('*').forEach(el => {
-        if (checkbox.checked) {
-            el.classList.add('dark-mode');
-        } else {
-            el.classList.remove('dark-mode');
-        }
-    });
 });
-
+initializeGame();
