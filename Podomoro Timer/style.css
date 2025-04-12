@@ -18,12 +18,39 @@ body {
     animation: fadeIn 1s ease-in-out forwards;
 }
 
+
+.time {
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%; 
+    transform: translateY(-50px);
+    animation: slideIn 0.8s ease-out forwards, pulse 2s ease-in-out infinite;
+    animation-delay: 0.3s;
+    transition: all 0.3s ease;
+}
+.time:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-55px);
+    animation: pulse 1s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+
 h1 {
     margin-bottom: 20px;
     color: #e74c3c;
     text-align: center;
     transform: translateY(-50px);
-    animation: slideIn 0.5s ease-in-out forwards;
+    animation: slideIn 1s ease-in-out forwards;
     animation-delay: 0.2s;
     transition: all 0.3s ease;
 }
@@ -88,7 +115,16 @@ button:disabled {
     transform: none;
     box-shadow: none;
 }
-
+button:disabled:hover {
+    background-color:rgb(255, 0, 0);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+button:disabled:active {
+    transform: none;
+    box-shadow: none;
+}
 .start{
     background-color: #e74c3c;
 }
@@ -124,6 +160,18 @@ button:disabled {
     }
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
