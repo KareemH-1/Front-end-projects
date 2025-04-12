@@ -3,6 +3,7 @@ const start = document.querySelector('.start');
 const pause = document.querySelector('.pause');
 const reset = document.querySelector('.reset');
 
+let alarmSound = new Audio('alarm-clock-90867.mp3');
 let currentTime = 1500; // 25 minutes in seconds
 
 function formatTime(seconds) {
@@ -15,8 +16,15 @@ function updateTimer() {
     currentTime--;
     time.textContent = formatTime(currentTime);
     if (currentTime === 0) {
+        alarmSound.loop = true;
+        alarmSound.play();
         clearInterval(interval);
     }
+}
+
+function stopAlarm() {
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
 }
 
 start.addEventListener('click', () => {
@@ -35,6 +43,7 @@ pause.addEventListener('click', () => {
 
 reset.addEventListener('click', () => {
     clearInterval(interval);
+    stopAlarm();
     currentTime = 1500;
     time.textContent = formatTime(currentTime);
     start.disabled = false;
@@ -43,4 +52,3 @@ reset.addEventListener('click', () => {
 });
 
 time.textContent = formatTime(currentTime);
-
