@@ -22,7 +22,7 @@ h1 {
     margin-bottom: 30px;
     color: #e74c3c;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3.2rem;
     font-weight: 700;
     letter-spacing: 1px;
     opacity: 0;
@@ -35,8 +35,8 @@ h1 {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    padding: 40px;
-    max-width: 420px;
+    padding: 50px;
+    max-width: 550px;
     width: 100%;
     opacity: 0;
     transform: translateY(30px);
@@ -51,10 +51,10 @@ h1 {
 }
 
 .time {
-    font-size: 5rem;
+    font-size: 7rem;
     font-family: 'Roboto Mono', monospace, 'Arial', sans-serif;
     font-weight: bold;
-    margin: 10px 0 30px;
+    margin: 20px 0 40px;
     text-align: center;
     color: #e74c3c;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
@@ -65,13 +65,13 @@ h1 {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 24px;
+    margin-top: 30px;
 }
 
 button {
-    padding: 14px 28px;
-    font-size: 1rem;
+    padding: 18px 36px;
+    font-size: 1.2rem;
     font-weight: 600;
     border: none;
     border-radius: 8px;
@@ -177,6 +177,58 @@ button:disabled:hover {
     }
 }
 
+@media (min-width: 1440px) {
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 40px;
+    }
+    
+    .timer {
+        padding: 60px;
+        max-width: 700px;
+    }
+    
+    .time {
+        font-size: 9rem;
+        margin: 30px 0 50px;
+    }
+    
+    button {
+        padding: 20px 42px;
+        font-size: 1.4rem;
+    }
+    
+    .buttons {
+        gap: 30px;
+    }
+}
+
+@media (min-width: 1920px) {
+    h1 {
+        font-size: 5rem;
+        margin-bottom: 50px;
+    }
+    
+    .timer {
+        padding: 70px;
+        max-width: 900px;
+    }
+    
+    .time {
+        font-size: 12rem;
+        margin: 40px 0 60px;
+    }
+    
+    button {
+        padding: 24px 50px;
+        font-size: 1.6rem;
+    }
+    
+    .buttons {
+        gap: 40px;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -198,6 +250,7 @@ button:disabled:hover {
     
     button {
         padding: 12px 24px;
+        font-size: 1rem;
     }
 }
 
@@ -240,5 +293,22 @@ button:disabled:hover {
     
     .time {
         font-size: 3rem;
+    }
+    .buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin: 10px auto 0;
+        padding: 10px;  
+        border: 1px solid #ccc;  
+        background-color: #f9f9f9;  
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        width: 100%;  
+        margin: 10px auto 0;
+        padding: 10px;  
+        border: 1px solid #ccc;  
+        background-color: #f9f9f9;  
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+        
     }
 }
