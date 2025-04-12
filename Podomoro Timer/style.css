@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #333333;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,60 +18,50 @@ body {
     animation: fadeIn 1s ease-in-out forwards;
 }
 
-
-.time {
-    font-size: 3rem;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    margin: 20px 0;
-    text-align: center;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    padding: 30px;
-    max-width: 400px;
-    width: 100%; 
-    transform: translateY(-50px);
-    animation: slideIn 0.8s ease-out forwards, pulse 2s ease-in-out infinite;
-    animation-delay: 0.3s;
-    transition: all 0.3s ease;
-}
-.time:hover {
-    background-color: #e0e0e0;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    transform: translateY(-55px);
-    animation: pulse 1s ease-in-out infinite;
-    transition: all 0.3s ease;
-}
-
-
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #e74c3c;
     text-align: center;
-    transform: translateY(-50px);
-    animation: slideIn 1s ease-in-out forwards;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeSlideDown 1s ease-out forwards;
     animation-delay: 0.2s;
-    transition: all 0.3s ease;
 }
 
 .timer {
-    font-size: 4rem;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    margin: 20px 0;
-    text-align: center;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 400px;
-    width: 100%; 
-    transform: translateY(-50px);
-    animation: slideIn 0.5s ease-in-out forwards;
-    animation-delay: 0.2s;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    padding: 40px;
+    max-width: 420px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 1s ease-out forwards;
+    animation-delay: 0.4s;
     transition: all 0.3s ease;
 }
+
+.timer:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.time {
+    font-size: 5rem;
+    font-family: 'Roboto Mono', monospace, 'Arial', sans-serif;
+    font-weight: bold;
+    margin: 10px 0 30px;
+    text-align: center;
+    color: #e74c3c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    animation: gentle-pulse 2s ease-in-out infinite;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -80,27 +70,25 @@ h1 {
 }
 
 button {
-    padding: 12px 25px;
+    padding: 14px 28px;
     font-size: 1rem;
     font-weight: 600;
-    background-color: #e74c3c;
-    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 button:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
     transform: translateY(1px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:focus {
@@ -115,34 +103,35 @@ button:disabled {
     transform: none;
     box-shadow: none;
 }
+
 button:disabled:hover {
-    background-color:rgb(255, 0, 0);
-    cursor: not-allowed;
+    background-color: #bbbbbb;
     transform: none;
     box-shadow: none;
 }
-button:disabled:active {
-    transform: none;
-    box-shadow: none;
-}
-.start{
+
+.start {
     background-color: #e74c3c;
 }
 
-.pause{
+.start:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.pause {
     background-color: #3498db;
 }
 
-.pause:hover {
+.pause:hover:not(:disabled) {
     background-color: #2980b9;
 }
 
 .reset {
-    background-color:rgb(17, 141, 89);
+    background-color: #27ae60;
 }
 
-.reset:hover {
-    background-color:rgb(16, 94, 61);
+.reset:hover:not(:disabled) {
+    background-color: #219955;
 }
 
 @keyframes fadeIn {
@@ -154,77 +143,102 @@ button:disabled:active {
     }
 }
 
-@keyframes slideIn {
+@keyframes fadeSlideDown {
     0% {
-        transform: translateY(-100%);
+        opacity: 0;
+        transform: translateY(-30px);
     }
     100% {
+        opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes pulse {
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentle-pulse {
     0% {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
     100% {
         transform: scale(1);
     }
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-    .timer {
-        font-size: 3rem;
-        padding: 20px;
-    }
-    button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-}
-@media (max-width: 400px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    .timer {
-        font-size: 2.5rem;
+@media (max-width: 768px) {
+    body {
         padding: 15px;
     }
+    
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+    
+    .timer {
+        padding: 30px;
+    }
+    
+    .time {
+        font-size: 4rem;
+        margin: 10px 0 25px;
+    }
+    
     button {
-        padding: 8px 15px;
-        font-size: 0.8rem;
+        padding: 12px 24px;
     }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 576px) {
     h1 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
     }
+    
     .timer {
-        font-size: 2rem;
-        padding: 10px;
+        padding: 25px;
     }
+    
+    .time {
+        font-size: 3.5rem;
+        margin: 5px 0 20px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 80%;
+        margin: 15px auto 0;
+    }
+    
     button {
-        padding: 6px 10px;
-        font-size: 0.7rem;
+        width: 100%;
+        padding: 12px 0;
     }
 }
-@media (max-width: 768px) {
-    body {
-        padding: 10px; 
+
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.5rem;
     }
+    
     .timer {
-        font-size: 3rem;
         padding: 20px;
     }
-    button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+    
+    .time {
+        font-size: 3rem;
     }
 }
