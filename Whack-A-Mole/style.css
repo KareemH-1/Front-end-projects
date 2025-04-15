@@ -1,0 +1,179 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #85c97f;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #3a5a40;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .scores {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+  
+  #score, #highScore {
+    background-color: #d8f3dc;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-container {
+    background-color: #3a5a40;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .inner-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: #588157;
+    border-radius: 15px;
+    position: relative;
+  }
+  
+  .hole {
+    background-color: #2e4024;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .mole {
+    background-color: #a17155;
+    border-radius: 50% 50% 40% 40%;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .mole:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 10px;
+    background-color: #7d5640;
+    border-radius: 50%;
+  }
+  
+  .mole:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #7d5640;
+  }
+  
+  #timer {
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 15px 0;
+    font-weight: bold;
+  }
+  
+  button {
+    background-color: #d8f3dc;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #b6e0c2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @keyframes whack {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(0.8); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+  
+  .whacked {
+    animation: whack 0.2s ease;
+  }
+  
+  #hole9 {
+    grid-column: 2;
+  }
+  
+  @media (max-width: 600px) {
+    .inner-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hole {
+      height: 70px;
+      width: 70px;
+    }
+    
+    .mole {
+      height: 50px;
+      width: 50px;
+    }
+    
+    #hole9 {
+      grid-column: auto;
+    }
+  }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(78, 157, 18);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
